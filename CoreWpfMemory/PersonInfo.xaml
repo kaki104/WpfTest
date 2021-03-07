@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="CoreWpfMemory.PersonInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoreWpfMemory"
+             mc:Ignorable="d" 
+             Width="300" 
+             Background="{StaticResource {x:Static SystemColors.AppWorkspaceBrushKey}}"
+             Padding="4">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Id" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="1" Text="Name" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="2" Text="Sex" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="3" Text="Age" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="4,0,0,0"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="4,0,0,0"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="4,0,0,0"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="4,0,0,0"/>
+    </Grid>
+</UserControl>

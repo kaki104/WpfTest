@@ -9,6 +9,8 @@ Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WpfTestPackage", "WpfTestPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpf", "CoreWpf\CoreWpf.csproj", "{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpfMemory", "CoreWpfMemory\CoreWpfMemory.csproj", "{E215D475-72BB-4C57-AC97-B59D35A50FD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,26 @@ Global
 		{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}.Release|x64.Build.0 = Release|Any CPU
 		{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}.Release|x86.ActiveCfg = Release|Any CPU
 		{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}.Release|x86.Build.0 = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|x64.Build.0 = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Debug|x86.Build.0 = Debug|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|ARM.Build.0 = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|ARM64.Build.0 = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|x64.ActiveCfg = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|x64.Build.0 = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|x86.ActiveCfg = Release|Any CPU
+		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
