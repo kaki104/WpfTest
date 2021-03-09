@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WpfTestPackage", "WpfTestPackage\WpfTestPackage.wapproj", "{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpf", "CoreWpf\CoreWpf.csproj", "{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpf", "CoreWpf\CoreWpf.csproj", "{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpfMemory", "CoreWpfMemory\CoreWpfMemory.csproj", "{E215D475-72BB-4C57-AC97-B59D35A50FD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfMemory", "CoreWpfMemory\CoreWpfMemory.csproj", "{E215D475-72BB-4C57-AC97-B59D35A50FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpfContextMenu", "CoreWpfContextMenu\CoreWpfContextMenu.csproj", "{45512DAD-F377-4BA4-8FF6-6EC4984050A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +117,26 @@ Global
 		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|x64.Build.0 = Release|Any CPU
 		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|x86.ActiveCfg = Release|Any CPU
 		{E215D475-72BB-4C57-AC97-B59D35A50FD3}.Release|x86.Build.0 = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|ARM.Build.0 = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|x64.Build.0 = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Debug|x86.Build.0 = Debug|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|ARM.ActiveCfg = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|ARM.Build.0 = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|ARM64.Build.0 = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|x64.ActiveCfg = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|x64.Build.0 = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|x86.ActiveCfg = Release|Any CPU
+		{45512DAD-F377-4BA4-8FF6-6EC4984050A9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
