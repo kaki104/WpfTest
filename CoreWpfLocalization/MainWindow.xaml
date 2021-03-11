@@ -1,0 +1,20 @@
+﻿<Window x:Class="CoreWpfLocalization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoreWpfLocalization"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="textBlock" Text="{Binding [WRD_HelloWorld], Source={StaticResource DR}}"/>
+            <TextBlock Text="{Binding ElementName=rootWindow, Path=Language}"/>
+            <TextBlock Text="{Binding ElementName=textBlock, Path=Language}"/>
+            <Button Content="en-US" Click="Button_Click"/>
+            <Button Content="ko-KR" Click="Button_Click"/>
+            <TextBlock x:Name="textBlock2" Text="{Binding Source={local:ResourceBinding Key=WRD_HelloWorld}}"/>
+            <TextBlock Text="{Binding ElementName=textBlock2, Path=Language}"/>
+        </StackPanel>
+    </Grid>
+</Window>
