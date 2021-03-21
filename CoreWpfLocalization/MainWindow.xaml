@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CoreWpfLocalization"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Localization Sample" Height="450" Width="800"
+        FontSize="30">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="en-US" Click="Button_Click"/>
+                <Button Content="ko-KR" Click="Button_Click"/>
+            </StackPanel>
             <TextBlock x:Name="textBlock" Text="{Binding [WRD_HelloWorld], Source={StaticResource DR}}"/>
-            <TextBlock Text="{Binding ElementName=rootWindow, Path=Language}"/>
             <TextBlock Text="{Binding ElementName=textBlock, Path=Language}"/>
-            <Button Content="en-US" Click="Button_Click"/>
-            <Button Content="ko-KR" Click="Button_Click"/>
-            <TextBlock x:Name="textBlock2" Text="{Binding Source={local:ResourceBinding Key=WRD_HelloWorld}}"/>
-            <TextBlock Text="{Binding ElementName=textBlock2, Path=Language}"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -61,11 +61,20 @@ namespace CoreWpfLocalization.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 헬로 월드~.
+        ///   Looks up a localized string similar to 헬로 월드! 로컬라이제이션 셈플.
         /// </summary>
         public static string WRD_HelloWorld {
             get {
                 return ResourceManager.GetString("WRD_HelloWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 로컬라이제이션 셈플.
+        /// </summary>
+        public static string WRD_WindowTitle {
+            get {
+                return ResourceManager.GetString("WRD_WindowTitle", resourceCulture);
             }
         }
     }
