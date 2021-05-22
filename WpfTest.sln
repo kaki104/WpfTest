@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfContextMenu", "CoreW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLocalization", "WpfLocalization\WpfLocalization.csproj", "{CA3F5F67-D237-4BE3-8C8E-91C637725EB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreWpfLocalization", "CoreWpfLocalization\CoreWpfLocalization.csproj", "{FD573308-E337-45CB-804B-679FE9C28C46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfLocalization", "CoreWpfLocalization\CoreWpfLocalization.csproj", "{FD573308-E337-45CB-804B-679FE9C28C46}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfCombo", "WpfCombo\WpfCombo.csproj", "{BD156625-E068-4CF6-AC40-0899A62C6D6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -181,6 +183,26 @@ Global
 		{FD573308-E337-45CB-804B-679FE9C28C46}.Release|x64.Build.0 = Release|Any CPU
 		{FD573308-E337-45CB-804B-679FE9C28C46}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD573308-E337-45CB-804B-679FE9C28C46}.Release|x86.Build.0 = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|x64.Build.0 = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Debug|x86.Build.0 = Debug|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|ARM.Build.0 = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|ARM64.Build.0 = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|x64.ActiveCfg = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|x64.Build.0 = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|x86.ActiveCfg = Release|Any CPU
+		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
