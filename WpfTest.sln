@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLocalization", "WpfLocal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfLocalization", "CoreWpfLocalization\CoreWpfLocalization.csproj", "{FD573308-E337-45CB-804B-679FE9C28C46}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfCombo", "WpfCombo\WpfCombo.csproj", "{BD156625-E068-4CF6-AC40-0899A62C6D6E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReorderingListBoxSample", "ReorderingListBoxSample\ReorderingListBoxSample.csproj", "{236F5354-8356-49E6-958C-EBAE53AD4ED2}"
 EndProject
 Global
@@ -183,26 +185,6 @@ Global
 		{FD573308-E337-45CB-804B-679FE9C28C46}.Release|x64.Build.0 = Release|Any CPU
 		{FD573308-E337-45CB-804B-679FE9C28C46}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD573308-E337-45CB-804B-679FE9C28C46}.Release|x86.Build.0 = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|ARM.Build.0 = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|x64.Build.0 = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Debug|x86.Build.0 = Debug|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|ARM.ActiveCfg = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|ARM.Build.0 = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|ARM64.Build.0 = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|x64.ActiveCfg = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|x64.Build.0 = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|x86.ActiveCfg = Release|Any CPU
-		{236F5354-8356-49E6-958C-EBAE53AD4ED2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

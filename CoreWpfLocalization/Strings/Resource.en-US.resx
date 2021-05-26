@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="WRD_HelloWorld" xml:space="preserve">
-    <value>Hello World~!~!</value>
+    <value>Hello World! Localization Sample</value>
+  </data>
+  <data name="WRD_WindowTitle" xml:space="preserve">
+    <value>Localization Sample</value>
   </data>
 </root>

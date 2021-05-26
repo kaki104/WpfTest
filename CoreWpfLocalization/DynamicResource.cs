@@ -1,11 +1,9 @@
 ﻿using CoreWpfLocalization.Strings;
 using System;
-using System.Collections.Generic;
 using System.Dynamic;
 using System.Globalization;
 using System.Linq;
 using System.Resources;
-using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Markup;
@@ -17,6 +15,7 @@ namespace CoreWpfLocalization
     /// </summary>
     public class DynamicResource : DynamicObject
     {
+        public event EventHandler<string> LanguageChanged;
         /// <summary>
         /// 윈도우 리소스로더
         /// </summary>
@@ -46,8 +45,8 @@ namespace CoreWpfLocalization
                 if (string.IsNullOrEmpty(id)) return null;
                 string str = _resourceManager.GetString(id, _clutureInfo);
                 if (string.IsNullOrEmpty(str))
-                //2. 없으면 키 반환
                 {
+                    //2. 없으면 키 반환
                     str = id;
                 }
                 return str;
@@ -73,45 +72,6 @@ namespace CoreWpfLocalization
         }
 
         #endregion
-        /// <summary>
-        /// 클래스 네임
-        /// </summary>
-        public string ClassName { get; set; }
-
-        /// <summary>
-        /// 리소스 딕셔너리
-        /// </summary>
-        private IDictionary<KeyValuePair<string, string>, string> ResourceDictionaryUsedByClass { get; }
-            = new Dictionary<KeyValuePair<string, string>, string>();
-
-        /// <summary>
-        /// 클래스에서 사용하는 리소스 사전에 추가
-        /// </summary>
-        /// <param name="className"></param>
-        /// <param name="resourceKey"></param>
-        private void AddResourceDictionary(string className, string resourceKey)
-        {
-            KeyValuePair<string, string> key = new KeyValuePair<string, string>(className ?? "public", resourceKey);
-            if (ResourceDictionaryUsedByClass.ContainsKey(key))
-            {
-                return;
-            }
-
-            ResourceDictionaryUsedByClass.Add(new KeyValuePair<KeyValuePair<string, string>, string>(key, resourceKey));
-        }
-
-        /// <summary>
-        /// 클래스에서 사용하는 리소스 사전 조회
-        /// </summary>
-        /// <param name="className"></param>
-        /// <returns></returns>
-        public IList<string> GetResourceDictionary(string className)
-        {
-            List<string> returnValues = (from item in ResourceDictionaryUsedByClass
-                                         where item.Key.Key == className
-                                         select item.Value).ToList();
-            return returnValues;
-        }
 
         /// <summary>
         /// 런타임 언어 변경
@@ -129,6 +89,11 @@ namespace CoreWpfLocalization
                 {
                     window.Language = XmlLanguage.GetLanguage(_clutureInfo.Name);
                 }
+            }
+
+            if (LanguageChanged != null)
+            {
+                LanguageChanged.Invoke(this, _clutureInfo.Name);
             }
         }
     }
