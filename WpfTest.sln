@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfLocalization", "Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfCombo", "WpfCombo\WpfCombo.csproj", "{BD156625-E068-4CF6-AC40-0899A62C6D6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReorderingListBoxSample", "ReorderingListBoxSample\ReorderingListBoxSample.csproj", "{236F5354-8356-49E6-958C-EBAE53AD4ED2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteSample", "SqliteSample\SqliteSample.csproj", "{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}"
 EndProject
 Global
