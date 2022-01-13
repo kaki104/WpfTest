@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.452
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.csproj", "{B2E78C7B-B7ED-43AF-A12F-8A667438A724}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfLocalization", "CoreWpfLocalization\CoreWpfLocalization.csproj", "{FD573308-E337-45CB-804B-679FE9C28C46}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfCombo", "WpfCombo\WpfCombo.csproj", "{BD156625-E068-4CF6-AC40-0899A62C6D6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteSample", "SqliteSample\SqliteSample.csproj", "{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -203,6 +205,26 @@ Global
 		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|x64.Build.0 = Release|Any CPU
 		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|x86.ActiveCfg = Release|Any CPU
 		{BD156625-E068-4CF6-AC40-0899A62C6D6E}.Release|x86.Build.0 = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|x64.Build.0 = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Debug|x86.Build.0 = Debug|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|ARM.Build.0 = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|ARM64.Build.0 = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|x64.ActiveCfg = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|x64.Build.0 = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|x86.ActiveCfg = Release|Any CPU
+		{C7ACEFDE-334D-4CD9-85B0-128ABAFE719E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,27 @@
+﻿<Window
+    x:Class="SqliteSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SqliteSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d"
+    Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Click="Button_Click" Content="Select" />
+            <Button Click="Button_Click_1" Content="Insert" />
+            <Button Click="Button_Click_2" Content="Update" />
+            <Button Click="Button_Click_3" Content="Delete" />
+        </StackPanel>
+
+        <DataGrid x:Name="DGrid" Grid.Column="1" />
+    </Grid>
+</Window>
