@@ -73,7 +73,7 @@ namespace SqliteSample
             var result = await _db.DeleteAsync<Customer>("kaki104");
             if (result == 0) return;
             await RefreshDataGridAsync();
-        }
+        }      
 
         /// <summary>
         /// 로드
