@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqliteSample", "SqliteSampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteSample2", "SQLiteSample2\SQLiteSample2.csproj", "{C2D20242-B13A-4031-A5FF-3B4703760D49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceDictionarySample", "ResourceDictionarySample\ResourceDictionarySample.csproj", "{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -269,6 +271,26 @@ Global
 		{C2D20242-B13A-4031-A5FF-3B4703760D49}.Release|x64.Build.0 = Release|Any CPU
 		{C2D20242-B13A-4031-A5FF-3B4703760D49}.Release|x86.ActiveCfg = Release|Any CPU
 		{C2D20242-B13A-4031-A5FF-3B4703760D49}.Release|x86.Build.0 = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|x64.Build.0 = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|ARM.Build.0 = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|ARM64.Build.0 = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|x64.ActiveCfg = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|x64.Build.0 = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D93384D-E5B1-4960-A4D7-24AAB48F2C16}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
