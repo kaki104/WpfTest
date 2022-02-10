@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ResourceDictionarySample2"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <SolidColorBrush x:Key="WhiteBrush" Color="White" />
+    <SolidColorBrush x:Key="RedBrush" Color="Red" />
+    <SolidColorBrush x:Key="BlueBrush" Color="Blue" />
+
+    <BitmapImage x:Key="BitmapMara" UriSource="/Images/mara's kaleidoscope.png" />
+
+    <system:String x:Key="DateFormatString">{0:D}</system:String>
+
+    <local:Person
+        x:Key="kaki104Person"
+        Name="kaki104"
+        Id="1"
+        Phone="010-1111-2222"
+        Sex="True" />
+
+    <DataTemplate x:Key="HeaderTemplate">
+        <Border Background="{StaticResource BlueBrush}">
+            <TextBlock Foreground="{StaticResource WhiteBrush}" Text="{Binding}" />
+        </Border>
+    </DataTemplate>
+</ResourceDictionary>
