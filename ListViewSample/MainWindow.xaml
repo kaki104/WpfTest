@@ -18,7 +18,14 @@
             <Button
                 Width="80"
                 Margin="10,10,0,10"
-                Content="ListView1" Click="Button_Click"/>
+                Click="Button_Click"
+                Content="ListView1"
+                Tag="ListView1" />
+            <Button
+                Margin="10,10,0,10"
+                Click="Button_Click"
+                Content="ListView CustomView"
+                Tag="ListViewCustomView" />
         </StackPanel>
     </Grid>
 </Window>
