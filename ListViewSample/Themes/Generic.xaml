@@ -10,7 +10,7 @@
         BasedOn="{StaticResource {x:Type ListBox}}"
         TargetType="{x:Type ListView}">
 
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="ItemTemplate" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=View.ItemTemplate}" />
         <Setter Property="ItemContainerStyle" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=View.ItemContainerStyle}" />
         <Setter Property="ItemsPanel">

@@ -38,7 +38,7 @@
         <local:PlainView x:Key="tileView" ItemWidth="100">
             <local:PlainView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="90" Height="100">
+                    <StackPanel>
                         <Border
                             Width="70"
                             Height="70"
