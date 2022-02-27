@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\cat.png" />
     <Resource Include="Images\dog.png" />
     <Resource Include="Images\fish.png" />

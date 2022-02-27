@@ -26,6 +26,10 @@ namespace ListViewSample
                     var listViewCustomView = new ListViewCustomView();
                     listViewCustomView.ShowDialog();
                     break;
+                case "GroupView":
+                    var listViewGroup = new ListViewGroup();
+                    listViewGroup.ShowDialog();
+                    break;
             }
         }
     }
