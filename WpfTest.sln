@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceDictionarySample", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceDictionarySample2", "ResourceDictionarySample2\ResourceDictionarySample2.csproj", "{1EAB373B-FA7A-4DA2-93E2-C9C7BD0F782E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListViewSample", "ListViewSample\ListViewSample.csproj", "{BE32ECA9-FCB2-43C2-BB31-28AC0D7F95E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListViewSample", "ListViewSample\ListViewSample.csproj", "{BE32ECA9-FCB2-43C2-BB31-28AC0D7F95E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridNumberColumn", "DataGridNumberColumn\DataGridNumberColumn.csproj", "{7609EEF8-6544-43D4-9618-B9D6D4C010D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridNumberColumn", "DataGridNumberColumn\DataGridNumberColumn.csproj", "{7609EEF8-6544-43D4-9618-B9D6D4C010D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListVsObservableCollection", "ListVsObservableCollection\ListVsObservableCollection.csproj", "{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -357,6 +359,26 @@ Global
 		{7609EEF8-6544-43D4-9618-B9D6D4C010D4}.Release|x64.Build.0 = Release|Any CPU
 		{7609EEF8-6544-43D4-9618-B9D6D4C010D4}.Release|x86.ActiveCfg = Release|Any CPU
 		{7609EEF8-6544-43D4-9618-B9D6D4C010D4}.Release|x86.Build.0 = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|ARM.Build.0 = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|x64.Build.0 = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Debug|x86.Build.0 = Debug|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|ARM.ActiveCfg = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|ARM.Build.0 = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|ARM64.Build.0 = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|x64.ActiveCfg = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|x64.Build.0 = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|x86.ActiveCfg = Release|Any CPU
+		{24FA1A7A-8271-464F-A3FF-F9B3919FEE00}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
