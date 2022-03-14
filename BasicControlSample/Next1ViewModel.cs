@@ -1,13 +1,13 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.Diagnostics;
+using System.Windows.Controls;
 
 namespace BasicControlSample
 {
-    public class MainViewModel : ObservableObject
+    public class Next1ViewModel : ObservableObject
     {
         private IList<Person> _persons = new ObservableCollection<Person>
             {
@@ -108,79 +108,70 @@ namespace BasicControlSample
             set { SetProperty(ref _selectedComboItem, value); }
         }
 
-        private Person _selectedListItem2;
-        public Person SelectedListItem2
-        {
-            get { return _selectedListItem2; }
-            set { SetProperty(ref _selectedListItem2, value); }
-        }
-
+        /// <summary>
+        /// 리스트 셀렉션 체인지 이벤트 커맨드
+        /// </summary>
+        public IRelayCommand ListSelectionChangedCommand { get; set; }
+        /// <summary>
+        /// 리스트 아이템 삭제 커맨드
+        /// </summary>
         public IRelayCommand DeleteListItemCommand { get; set; }
-
-        private Person _selectedComboItem2;
-        public Person SelectedComboItem2
-        {
-            get { return _selectedComboItem2; }
-            set { SetProperty(ref _selectedComboItem2, value); }
-        }
-
+        /// <summary>
+        /// 콤보 셀렉션 체인지 이벤트 커맨드
+        /// </summary>
+        public IRelayCommand ComboSelectionChangedCommand { get; set; }
+        /// <summary>
+        /// 콤보 아이템 삭제 커맨드
+        /// </summary>
         public IRelayCommand DeleteComboItemCommand { get; set; }
 
-        public IRelayCommand ShowNextWindowCommand { get; set; }
-
-        public MainViewModel()
+        public Next1ViewModel()
         {
             Init();
         }
 
         private void Init()
         {
-            SelectedListItem = Persons.FirstOrDefault();
-            SelectedComboItem = Persons.FirstOrDefault();
-
-            //커맨드 생성
+            ListSelectionChangedCommand = new RelayCommand<object>(OnListSelectionChanged);
             DeleteListItemCommand = new RelayCommand(OnDeleteListItem,
-                () => SelectedListItem2 != null && SelectedListItem2.Age % 2 == 0);
+                                        () => SelectedListItem != null && SelectedListItem.Age % 2 == 0);
+            ComboSelectionChangedCommand = new RelayCommand<object>(OnComboSelectionChanged);
             DeleteComboItemCommand = new RelayCommand(OnDeleteComboItem,
-                () => SelectedComboItem2 != null && SelectedComboItem2.Age % 2 == 1);
-            ShowNextWindowCommand = new RelayCommand(OnShowNextWindow);
-
-            //뷰모델 내부에서 프로퍼티 체인지 이벤트 핸들러 추가
-            PropertyChanged += MainViewModel_PropertyChanged;
-        }
-
-        private void OnShowNextWindow()
-        {
-            //Sample코드이기 때문에 뷰를 직접 생성해서 Show를 하는 것입니다.
-            //실제 애플리케이션일 때 뷰모델에서 뷰를 생성하는 것은 하지 않습니다.
-            var nextWindow = new Next1Window();
-            nextWindow.Show();
-        }
-
-        private void MainViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            //nameof를 이용하면, 프로퍼티의 이름이 변경되었을 때 에러가
-            //발생하기 때문에, 에러가 발생하는 것을 방지 할 수 있음
-            switch (e.PropertyName)
-            {
-                case nameof(SelectedListItem2):
-                    //커맨드의 사용가능 여부 확인
-                    DeleteListItemCommand.NotifyCanExecuteChanged();
-                    break;
-                case nameof(SelectedComboItem2):
-                    DeleteComboItemCommand.NotifyCanExecuteChanged();
-                    break;
-            }
+                                        () => SelectedComboItem != null && SelectedComboItem.Age % 2 == 1);
         }
 
         private void OnDeleteComboItem()
         {
-            Persons.Remove(SelectedComboItem2);
+            Persons.Remove(SelectedComboItem);
         }
 
         private void OnDeleteListItem()
         {
-            Persons.Remove(SelectedListItem2);
+            Persons.Remove(SelectedListItem);
+        }
+
+        private void OnComboSelectionChanged(object arg)
+        {
+            var eventArgs = arg as SelectionChangedEventArgs;
+            if (eventArgs == null)
+            {
+                return;
+            }
+            Debug.WriteLine($"Combo AddedItems.Count : {eventArgs.AddedItems.Count}");
+            Debug.WriteLine($"Combo RemovedItems.Count : {eventArgs.RemovedItems.Count}");
+            DeleteComboItemCommand.NotifyCanExecuteChanged();
+        }
+
+        private void OnListSelectionChanged(object arg)
+        {
+            var eventArgs = arg as SelectionChangedEventArgs;
+            if(eventArgs == null)
+            {
+                return;
+            }
+            Debug.WriteLine($"List AddedItems.Count : {eventArgs.AddedItems.Count}");
+            Debug.WriteLine($"List RemovedItems.Count : {eventArgs.RemovedItems.Count}");
+            DeleteListItemCommand.NotifyCanExecuteChanged();
         }
     }
 }

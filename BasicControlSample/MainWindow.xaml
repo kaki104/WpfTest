@@ -15,6 +15,7 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
             <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -120,5 +121,10 @@
             DisplayMemberPath="Name"
             ItemsSource="{Binding Persons}"
             SelectedItem="{Binding SelectedComboItem2, Mode=TwoWay}" />
+        <Button
+            Grid.Row="4"
+            Grid.ColumnSpan="4"
+            Content="Show Next Window" 
+            Command="{Binding ShowNextWindowCommand}"/>
     </Grid>
 </Window>
