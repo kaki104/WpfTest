@@ -94,6 +94,41 @@ namespace BasicControlSample
             };
         public IList<Person> Persons { get { return _persons; } }
 
+        public IList<CodeModel> Sexs { get; set; } = new List<CodeModel>
+        {
+            new CodeModel { Name = "Male", Value = true, Code = "male" },
+            new CodeModel { Name = "Female", Value = false, Code = "female"}
+        };
+
+        public IList<CodeModel> Addressies { get; set; } = new List<CodeModel>
+        {
+            new CodeModel { Name = "서울 강남구", Code = "06090" },
+            new CodeModel { Name = "서울 강동구", Code = "05397" },
+            new CodeModel { Name = "서울 강북구", Code = "01071" },
+            new CodeModel { Name = "서울 강서구", Code = "07658" },
+            new CodeModel { Name = "서울 관악구", Code = "08832" },
+            new CodeModel { Name = "서울 광진구", Code = "05026" },
+            new CodeModel { Name = "서울 구로구", Code = "08284" },
+            new CodeModel { Name = "서울 금천구", Code = "08611" },
+            new CodeModel { Name = "서울 노원구", Code = "01689" },
+            new CodeModel { Name = "서울 도봉구", Code = "01331" },
+            new CodeModel { Name = "서울 동대문구", Code = "02565" },
+            new CodeModel { Name = "서울 동작구", Code = "06928" },
+            new CodeModel { Name = "서울 마포구", Code = "03937" },
+            new CodeModel { Name = "서울 서대문구", Code = "03718" },
+            new CodeModel { Name = "서울 서초구", Code = "06750" },
+            new CodeModel { Name = "서울 성동구", Code = "04750" },
+            new CodeModel { Name = "서울 성북구", Code = "02848" },
+            new CodeModel { Name = "서울 송파구", Code = "05552" },
+            new CodeModel { Name = "서울 양천구", Code = "08095" },
+            new CodeModel { Name = "서울 영등포구", Code = "07260" },
+            new CodeModel { Name = "서울 용산구", Code = "04390" },
+            new CodeModel { Name = "서울 은평구", Code = "03384" },
+            new CodeModel { Name = "서울 종로구", Code = "03153" },
+            new CodeModel { Name = "서울 중구", Code = "04558" },
+            new CodeModel { Name = "서울 중량구", Code = "02043" },
+        };
+
         private Person _selectedListItem;
         public Person SelectedListItem
         {

@@ -50,6 +50,7 @@
             Grid.Row="1"
             Grid.Column="0"
             DisplayMemberPath="Name"
+            IsSynchronizedWithCurrentItem="False"
             ItemsSource="{Binding Persons}"
             SelectedItem="{Binding SelectedListItem, Mode=TwoWay}">
             <b:Interaction.Triggers>
@@ -86,6 +87,69 @@
                 </b:EventTrigger>
             </b:Interaction.Triggers>
         </ComboBox>
-
+        <!--  Detail  -->
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="4,0"
+            Text="Detail" />
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="4,0"
+            VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Name" />
+            <TextBox
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding SelectedListItem.Name}" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Sex" />
+            <ComboBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,2,0,0"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding Sexs}"
+                SelectedValue="{Binding SelectedListItem.Sex, Mode=TwoWay}"
+                SelectedValuePath="Value" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Age" />
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="0,2,0,0"
+                Text="{Binding SelectedListItem.Age}" />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Address" />
+            <ComboBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="0,2,0,0"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding Addressies}"
+                SelectedValue="{Binding SelectedListItem.Address, Mode=TwoWay}"
+                SelectedValuePath="Code" />
+        </Grid>
     </Grid>
 </Window>
