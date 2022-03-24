@@ -1,0 +1,19 @@
+﻿<Window x:Class="CreateBuildDate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreateBuildDate"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"
+                    TextBlock.FontSize="20" TextBlock.FontWeight="Bold">
+            <TextBlock Text="Create Build Date sample!!"/>
+            <TextBlock>
+                The application build 
+                <Run x:Name="BuildDate" Text="March 24, 2022 at 11:02"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

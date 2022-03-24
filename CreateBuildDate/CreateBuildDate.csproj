@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <Target Name="Date" BeforeTargets="BeforeBuild">
+    <WriteLinesToFile File="$(IntermediateOutputPath)gen.cs"
+      Lines="static partial class Builtin { public static long CompileTime = $([System.DateTime]::UtcNow.Ticks) %3B }" Overwrite="true" />
+	  <!--Visual Studio 2019-->
+      <!--<ItemGroup>
+        <Compile Include="$(IntermediateOutputPath)gen.cs" />
+	  </ItemGroup>-->
+  </Target>
+  <!--Visual Studio 2022-->
+  <ItemGroup>
+    <Compile Include="$(IntermediateOutputPath)gen.cs" />
+  </ItemGroup>
+</Project>
