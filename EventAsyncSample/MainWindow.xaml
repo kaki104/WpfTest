@@ -20,11 +20,11 @@
         <StackPanel>
             <TextBlock Text="Category1"/>
             <ComboBox x:Name="CategoryComboBox1" SelectionChanged="CategoryComboBox1_SelectionChanged">
-                <ComboBoxItem Content="Category1-1"/>
-                <ComboBoxItem Content="Category1-2"/>
-                <ComboBoxItem Content="Category1-3"/>
-                <ComboBoxItem Content="Category1-4"/>
-                <ComboBoxItem Content="Category1-5"/>
+                <ComboBoxItem Content="0_Category_1"/>
+                <ComboBoxItem Content="0_Category_2"/>
+                <ComboBoxItem Content="0_Category_3"/>
+                <ComboBoxItem Content="0_Category_4"/>
+                <ComboBoxItem Content="0_Category_5"/>
             </ComboBox>
         </StackPanel>
         <ListBox x:Name="CategoryListBox1" Grid.Row="1"

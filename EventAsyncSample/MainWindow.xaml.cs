@@ -37,7 +37,7 @@ namespace EventAsyncSample
                 return;
             }
             BusyPopup.IsOpen = true;
-            var datas = GetDatas(_sleepConst);
+            var datas = GetDatas(_sleepConst, ((ComboBoxItem)CategoryComboBox1.SelectedItem).Content as string ?? "0_Category_0");
             CategoryListBox1.ItemsSource = datas;
             CategoryListBox1.SelectedIndex = 0;
         }
@@ -49,7 +49,7 @@ namespace EventAsyncSample
                 return;
             }
             BusyPopup.IsOpen = true;
-            var datas = GetDatas(_sleepConst);
+            var datas = GetDatas(_sleepConst, CategoryListBox1.SelectedItem as string ?? "CategoryListBox1");
             CategoryComboBox2.ItemsSource = datas;
             CategoryComboBox2.SelectedIndex = 0;
         }
@@ -61,7 +61,7 @@ namespace EventAsyncSample
                 return;
             }
             BusyPopup.IsOpen = true;
-            var datas = GetDatas(_sleepConst);
+            var datas = GetDatas(_sleepConst, CategoryComboBox2.SelectedItem as string ?? "CategoryComboBox2");
             CategoryListBox2.ItemsSource = datas;
             CategoryListBox2.SelectedIndex = 0;
         }
@@ -73,29 +73,30 @@ namespace EventAsyncSample
                 return;
             }
             BusyPopup.IsOpen = true;
-            var datas = GetDatas(_sleepConst);
+            var datas = GetDatas(_sleepConst, CategoryListBox2.SelectedItem as string ?? "CategoryListBox2.SelectedItem");
             PersonListView.ItemsSource = datas;
             PersonListView.SelectedIndex = 0;
             Debug.WriteLine($"End {DateTime.Now}");
             BusyPopup.IsOpen = false;
         }
 
-        private IList<string> GetDatas(int sleep)
+        private IList<string> GetDatas(int sleep, string selectedString)
         {
             Task.Delay(sleep).Wait();
             _count++;
+            var words = selectedString.Split('_');
             return new List<string> 
-            { 
-                $"{_count}_List01",
-                $"{_count}_List02",
-                $"{_count}_List03",
-                $"{_count}_List04",
-                $"{_count}_List05",
-                $"{_count}_List06",
-                $"{_count}_List07",
-                $"{_count}_List08",
-                $"{_count}_List09",
-                $"{_count}_List10",
+            {
+                $"{_count}_{words[1] + words[2]}_01",
+                $"{_count}_{words[1] + words[2]}_02",
+                $"{_count}_{words[1] + words[2]}_03",
+                $"{_count}_{words[1] + words[2]}_04",
+                $"{_count}_{words[1] + words[2]}_05",
+                $"{_count}_{words[1] + words[2]}_06",
+                $"{_count}_{words[1] + words[2]}_07",
+                $"{_count}_{words[1] + words[2]}_08",
+                $"{_count}_{words[1] + words[2]}_09",
+                $"{_count}_{words[1] + words[2]}_10",
             };
         }
 
