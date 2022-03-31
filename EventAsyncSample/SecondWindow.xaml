@@ -1,0 +1,56 @@
+﻿<Window x:Class="EventAsyncSample.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EventAsyncSample"
+        mc:Ignorable="d"
+        Title="SecondWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="Category1"/>
+            <ComboBox x:Name="CategoryComboBox1" SelectionChanged="CategoryComboBox1_SelectionChanged">
+                <ComboBoxItem Content="Category1-1"/>
+                <ComboBoxItem Content="Category1-2"/>
+                <ComboBoxItem Content="Category1-3"/>
+                <ComboBoxItem Content="Category1-4"/>
+                <ComboBoxItem Content="Category1-5"/>
+            </ComboBox>
+        </StackPanel>
+        <ListBox x:Name="CategoryListBox1" Grid.Row="1"
+                 SelectionChanged="CategoryListBox1_SelectionChanged">
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Category2"/>
+            <ComboBox x:Name="CategoryComboBox2" SelectionChanged="CategoryComboBox2_SelectionChanged"/>
+        </StackPanel>
+        <ListBox x:Name="CategoryListBox2" Grid.Column="1" Grid.Row="1"
+                 SelectionChanged="CategoryListBox2_SelectionChanged"/>
+        <TextBlock Text="People" Grid.Column="2"/>
+        <ListView x:Name="PersonListView" Grid.Column="2" Grid.Row="1"/>
+        <Popup x:Name="BusyPopup"
+               Placement="Center">
+            <Border Background="Red" Width="100" Height="50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ProgressBar IsIndeterminate="True" Height="20" Margin="10,0"/>
+                    <TextBlock Text="Busy..." Grid.Row="1" HorizontalAlignment="Center"
+                               Foreground="White"/>
+                </Grid>
+            </Border>
+        </Popup>
+    </Grid>
+</Window>
