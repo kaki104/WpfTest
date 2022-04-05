@@ -1,0 +1,44 @@
+﻿<Window x:Class="LargeFileReadSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LargeFileReadSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="File Open" Width="80" Click="Button_Click"/>
+            <ProgressBar Width="200" Margin="5,0" IsIndeterminate="True"/>
+        </StackPanel>
+        <!--<ListBox Grid.Row="1" x:Name="listBox"
+                 SelectionChanged="listBox_SelectionChanged"/>-->
+        <!--<ListBox Grid.Row="1" x:Name="listBox"
+                 SelectionChanged="listBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ID}"/>
+                        <TextBlock Text="{Binding CaseNumber}" Margin="5,0"/>
+                        <TextBlock Text="{Binding Date}" Margin="5,0"/>
+                        <TextBlock Text="{Binding Block}" Margin="5,0"/>
+                        <TextBlock Text="{Binding IUCR}" Margin="5,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
+        <DataGrid Grid.Row="1" x:Name="dataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="CaseNumber" Binding="{Binding CaseNumber}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Block" Binding="{Binding Block}"/>
+                <DataGridTextColumn Header="IUCR" Binding="{Binding IUCR}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
