@@ -1,11 +1,11 @@
-﻿<Window x:Class="LargeFileReadSample.MainWindow"
+﻿<Window x:Class="LargeFileReadSample.YieldWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LargeFileReadSample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="YieldWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,9 +17,12 @@
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button Content="File Open" Width="80" Click="Button_Click"/>
+            <TextBlock Margin="10,0,0,0">
+                Count:<Run x:Name="CountTextBlock"/>
+            </TextBlock>
         </StackPanel>
         <ProgressBar Grid.Column="1" Grid.ColumnSpan="2" Margin="5,0" IsIndeterminate="True"/>
-        
+
         <ListBox Grid.Row="1" x:Name="listBox">
             <ListBox.ItemTemplate>
                 <DataTemplate>

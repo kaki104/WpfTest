@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LargeFileReadSample
+﻿namespace LargeFileReadSample
 {
-    //"ID,Case Number,Date,Block,IUCR,Primary Type,Description,Location Description,Arrest,Domestic,Beat,District,Ward,Community Area,FBI Code,
-    //X Coordinate,Y Coordinate,Year,Updated On,Latitude,Longitude,Location"
-
-    public class SampleDataModel
+    /// <summary>
+    /// Sample Data model
+    /// </summary>
+    public class SampleData
     {
         public string ID { get; set; }
         public string CaseNumber { get; set; }
