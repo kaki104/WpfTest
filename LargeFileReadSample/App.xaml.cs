@@ -15,9 +15,9 @@ namespace LargeFileReadSample
     {
         public App()
         {
-            //StartupUri = new Uri("/MainWindow.xaml", UriKind.RelativeOrAbsolute);
-            StartupUri = new Uri("/YieldWindow.xaml", UriKind.RelativeOrAbsolute);
-
+            StartupUri = new Uri("/MainWindow.xaml", UriKind.RelativeOrAbsolute);
+            //StartupUri = new Uri("/YieldWindow.xaml", UriKind.RelativeOrAbsolute);
+            //StartupUri = new Uri("/MvvmWindow.xaml", UriKind.RelativeOrAbsolute);
         }
     }
 }
