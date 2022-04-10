@@ -61,6 +61,7 @@ namespace LargeFileReadSample
             IList<SampleData> returnValues = new List<SampleData>();
             using (var reader = new StreamReader(fileName))
             {
+                //1줄씩 읽어서 처리
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();

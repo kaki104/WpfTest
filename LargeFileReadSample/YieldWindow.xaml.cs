@@ -46,6 +46,7 @@ namespace LargeFileReadSample
             var models = GetModels(fileName);
             //모델을 한번에 ItemsSource에 연결
             //listBox.ItemsSource = models;
+
             int count = 0;
             //total count는 구할수 없음
             foreach (var model in models)
@@ -57,7 +58,7 @@ namespace LargeFileReadSample
                     await Task.Delay(1);
                 }
                 listBox.Items.Add(model);
-                dataGrid.Items.Add(model);
+                //dataGrid.Items.Add(model);
             }
             CountTextBlock.Text = count.ToString("N0");
         }
