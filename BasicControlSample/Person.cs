@@ -1,19 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace BasicControlSample
 {
-    public class Person
+    public class Person : ObservableObject
     {
-        public string Name { get; set; }
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+        }
 
-        public bool Sex { get; set; }
+        private bool _sex;
+        public bool Sex
+        {
+            get { return _sex; }
+            set { SetProperty(ref _sex, value); }
+        }
 
-        public int Age { get; set; }
+        private int _age;
+        public int Age
+        {
+            get { return _age; }
+            set { SetProperty(ref _age, value); }
+        }
 
-        public string Address { get; set; }
+        private string _address;
+        public string Address
+        {
+            get { return _address; }
+            set { SetProperty(ref _address, value); }
+        }
     }
 }
