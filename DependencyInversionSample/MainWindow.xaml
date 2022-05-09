@@ -18,7 +18,23 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button Click="Button_Click" Content="Salary Calculation" />
-        <DataGrid x:Name="EmployeeDataGrid" Grid.Row="1" />
+        <StackPanel Orientation="Horizontal">
+            <Button
+                Margin="5"
+                Command="{Binding LanguageChangeCommand}"
+                CommandParameter="english"
+                Content="{Binding Source={StaticResource LDR}, Path=[wrd_english]}" />
+            <Button
+                Margin="5"
+                Command="{Binding LanguageChangeCommand}"
+                CommandParameter="korean"
+                Content="{Binding Source={StaticResource LDR}, Path=[wrd_korean]}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="5">
+            <TextBlock Text="{Binding Source={StaticResource LDR}, Path=[wrd_Hello]}" />
+            <TextBlock Text="{Binding Source={StaticResource LDR}, Path=[msg_DIDescription]}" />
+            <TextBlock Text="{Binding Source={StaticResource LDR}, Path=[msg_local]}" />
+            <TextBlock Text="{Binding Source={StaticResource LDR}, Path=[msg_koreannotsupport]}" />
+        </StackPanel>
     </Grid>
 </Window>
