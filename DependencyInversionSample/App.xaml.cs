@@ -17,8 +17,8 @@ namespace DependencyInversionSample
     {
         public App()
         {
-            this.InitializeComponent();
             Services = ConfigureServices();
+            this.InitializeComponent();
         }
 
         /// <summary>
@@ -41,9 +41,9 @@ namespace DependencyInversionSample
             //ViewModel 등록
             services.AddTransient(typeof(MainViewModel));
 
-            var dynamicResource = Current.Resources["LDR"] as IDynamicResource;
-            //IDatabaseService 싱글톤 등록
-            services.AddSingleton(dynamicResource);
+            var dr = new LocalDynamicResource();
+            Current.Resources.Add("DR", dr);
+            services.AddSingleton<IDynamicResource>(dr);
 
             return services.BuildServiceProvider();
         }

@@ -20,10 +20,10 @@ namespace DependencyInversionSample.Common
         /// </summary>
         public event EventHandler<string> LanguageChanged;
         /// <summary> 
-        /// 윈도우 리소스로더 
+        /// 공통 리소스 메니저
         /// </summary> 
         private readonly ResourceManager _resourceManager;
-        private CultureInfo _clutureInfo;
+        protected CultureInfo ClutureInfo = new("en-US");
 
         /// <summary> 
         /// 생성자 
@@ -44,13 +44,13 @@ namespace DependencyInversionSample.Common
             {
                 //1. 리소스에서 값 조회
                 if (string.IsNullOrEmpty(id)) return null;
-                string str = _resourceManager.GetString(id, _clutureInfo);
-                if (string.IsNullOrEmpty(str))
+                string value = _resourceManager.GetString(id, ClutureInfo);
+                if (string.IsNullOrEmpty(value))
                 {
                     //2. 없으면 키 반환
-                    str = id;
+                    value = id;
                 }
-                return str;
+                return value;
             }
         }
 
@@ -63,12 +63,12 @@ namespace DependencyInversionSample.Common
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
             string id = binder.Name;
-            string str = _resourceManager.GetString(id, _clutureInfo);
-            if (string.IsNullOrEmpty(str))
+            string value = _resourceManager.GetString(id, ClutureInfo);
+            if (string.IsNullOrEmpty(value))
             {
-                str = id;
+                value = id;
             }
-            result = str;
+            result = value;
             return true;
         }
 
@@ -78,20 +78,20 @@ namespace DependencyInversionSample.Common
         /// <param name="languageCode"></param> 
         public virtual void ChangeLanguage(string languageCode)
         {
-            _clutureInfo = new CultureInfo(languageCode);
-            Thread.CurrentThread.CurrentCulture = _clutureInfo;
-            Thread.CurrentThread.CurrentUICulture = _clutureInfo;
+            ClutureInfo = new CultureInfo(languageCode);
+            Thread.CurrentThread.CurrentCulture = ClutureInfo;
+            Thread.CurrentThread.CurrentUICulture = ClutureInfo;
             //윈도우의 언어코드 변경
             foreach (Window window in Application.Current.Windows.Cast<Window>())
             {
                 if (!window.AllowsTransparency)
                 {
-                    window.Language = XmlLanguage.GetLanguage(_clutureInfo.Name);
+                    window.Language = XmlLanguage.GetLanguage(ClutureInfo.Name);
                 }
             }
             if (LanguageChanged != null)
             {
-                LanguageChanged.Invoke(this, _clutureInfo.Name);
+                LanguageChanged.Invoke(this, ClutureInfo.Name);
             }
         }
     }

@@ -5,30 +5,39 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Resources;
+using System.Globalization;
+using System.Threading;
+using System.Windows;
+using System.Windows.Markup;
+using DependencyInversionSample.Strings;
 
 namespace DependencyInversionSample
 {
+    /// <summary>
+    /// 로컬 String Resource 사용 클래스
+    /// </summary>
     public class LocalDynamicResource : DynamicResource
     {
-        private IDictionary<string, string> _stringDic;
+        /// <summary> 
+        /// 로컬 리소스 메니저 
+        /// </summary> 
+        private readonly ResourceManager _resourceManager;
 
-        public LocalDynamicResource()
-            : base()
+        public LocalDynamicResource() : base()
         {
-            _stringDic = new Dictionary<string, string>
-            {
-                {"msg_local", "This is a local string" },
-                {"msg_koreannotsupport", "Korean is not supported" },
-            };
+            _resourceManager = new ResourceManager(typeof(LocalResource));
         }
 
         public override string this[string id]
         {
             get
             {
-                if(_stringDic.ContainsKey(id))
+                if (string.IsNullOrEmpty(id)) return null;
+                string value = _resourceManager.GetString(id, ClutureInfo);
+                if (string.IsNullOrEmpty(value) == false)
                 {
-                    return _stringDic[id];
+                    return value;
                 }
                 else
                 {
@@ -39,9 +48,11 @@ namespace DependencyInversionSample
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            if(_stringDic.ContainsKey(binder.Name))
+            string id = binder.Name;
+            string value = _resourceManager.GetString(id, ClutureInfo);
+            if (string.IsNullOrEmpty(value) == false)
             {
-                result = _stringDic[binder.Name];
+                result = value;
                 return true;
             }
             else

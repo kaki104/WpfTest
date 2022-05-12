@@ -16,4 +16,19 @@
     <ProjectReference Include="..\DependencyInversionSample.Common\DependencyInversionSample.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Strings\LocalResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LocalResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Strings\LocalResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

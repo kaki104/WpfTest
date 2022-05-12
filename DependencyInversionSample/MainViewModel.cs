@@ -11,14 +11,13 @@ namespace DependencyInversionSample
 {
     public class MainViewModel : ObservableObject
     {
-        private IDynamicResource _dr;
+        private readonly IDynamicResource _dr;
 
         public IRelayCommand LanguageChangeCommand { get; set; }
 
         public MainViewModel(IDynamicResource dynamicResource)
         {
             _dr = dynamicResource;
-
             Init();
         }
 
@@ -40,4 +39,5 @@ namespace DependencyInversionSample
             }
         }
     }
+
 }
