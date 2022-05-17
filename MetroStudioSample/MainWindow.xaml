@@ -10,13 +10,9 @@
     Height="450"
     mc:Ignorable="d">
     <Grid Background="Black">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
         <StackPanel>
-            <ContentControl Height="100" Content="{StaticResource Sample}" />
-            <ContentControl Height="100" Content="{StaticResource Add row bottom}" />
+            <ContentControl Height="200" Content="{StaticResource Sample}" />
+            <ContentControl Height="200" Content="{StaticResource Add row bottom}" />
         </StackPanel>
     </Grid>
 </Window>
