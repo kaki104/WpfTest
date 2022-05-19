@@ -61,7 +61,7 @@ namespace DependencyInversionSample.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to test.
+        ///   Looks up a localized string similar to Local Test String.
         /// </summary>
         public static string msg_local {
             get {
