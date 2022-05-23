@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.csproj", "{B2E78C7B-B7ED-43AF-A12F-8A667438A724}"
 EndProject
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "WpfTestPackage", "WpfTestPackage\WpfTestPackage.wapproj", "{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpf", "CoreWpf\CoreWpf.csproj", "{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWpfMemory", "CoreWpfMemory\CoreWpfMemory.csproj", "{E215D475-72BB-4C57-AC97-B59D35A50FD3}"
@@ -49,7 +47,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetroStudioSample", "MetroS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInversionSample", "DependencyInversionSample\DependencyInversionSample.csproj", "{51C3C96D-11E9-4BC1-AF34-A32A6F78611B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInversionSample.Common", "DependencyInversionSample.Common\DependencyInversionSample.Common.csproj", "{B68494A2-3CD0-4680-A69B-5B6C34D7BB44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInversionSample.Common", "DependencyInversionSample.Common\DependencyInversionSample.Common.csproj", "{B68494A2-3CD0-4680-A69B-5B6C34D7BB44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,36 +83,6 @@ Global
 		{B2E78C7B-B7ED-43AF-A12F-8A667438A724}.Release|x64.Build.0 = Release|Any CPU
 		{B2E78C7B-B7ED-43AF-A12F-8A667438A724}.Release|x86.ActiveCfg = Release|Any CPU
 		{B2E78C7B-B7ED-43AF-A12F-8A667438A724}.Release|x86.Build.0 = Release|Any CPU
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|ARM.ActiveCfg = Debug|ARM
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|ARM.Build.0 = Debug|ARM
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|ARM.Deploy.0 = Debug|ARM
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|ARM64.Build.0 = Debug|ARM64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|x64.ActiveCfg = Debug|x64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|x64.Build.0 = Debug|x64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|x64.Deploy.0 = Debug|x64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|x86.ActiveCfg = Debug|x86
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|x86.Build.0 = Debug|x86
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Debug|x86.Deploy.0 = Debug|x86
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|ARM.ActiveCfg = Release|ARM
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|ARM.Build.0 = Release|ARM
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|ARM.Deploy.0 = Release|ARM
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|ARM64.ActiveCfg = Release|ARM64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|ARM64.Build.0 = Release|ARM64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|ARM64.Deploy.0 = Release|ARM64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|x64.ActiveCfg = Release|x64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|x64.Build.0 = Release|x64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|x64.Deploy.0 = Release|x64
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|x86.ActiveCfg = Release|x86
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|x86.Build.0 = Release|x86
-		{3A5CE7EA-B823-4D2D-97A0-75DD6ADC7214}.Release|x86.Deploy.0 = Release|x86
 		{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78E56B4A-0C62-4BC4-A5D7-F95CDE51B98E}.Debug|ARM.ActiveCfg = Debug|Any CPU
