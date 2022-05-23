@@ -36,17 +36,17 @@ namespace WpfTest
             LongBlock.Text = longitude;
             LatBlock.Text = latitude;
 
-            await TheMap.TrySetViewAsync(pos.Coordinate.Point, 15.0);
+            //await TheMap.TrySetViewAsync(pos.Coordinate.Point, 15.0);
         }
 
         private void Host_ChildChanged(object sender, EventArgs e)
         {
-            WindowsXamlHost windowsXamlHost = (WindowsXamlHost)sender;
+            //WindowsXamlHost windowsXamlHost = (WindowsXamlHost)sender;
 
-            Windows.UI.Xaml.Controls.TextBlock textBlock =
-                (Windows.UI.Xaml.Controls.TextBlock)windowsXamlHost.Child;
+            //Windows.UI.Xaml.Controls.TextBlock textBlock =
+            //    (Windows.UI.Xaml.Controls.TextBlock)windowsXamlHost.Child;
 
-            textBlock.Text = "❤❤❤❤😍😍😍😍";
+            //textBlock.Text = "❤❤❤❤😍😍😍😍";
         }
     }
 }
