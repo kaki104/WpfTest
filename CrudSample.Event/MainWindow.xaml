@@ -24,17 +24,17 @@
             HorizontalAlignment="Right"
             Content="Search" />
         <DataGrid
-            x:Name="MemberGrid"
+            x:Name="MemberDataGrid"
             Grid.Row="1"
             Margin="0,10,0,0"
             AutoGenerateColumns="False"
             IsReadOnly="True"
             SelectionChanged="MemberGrid_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
-                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" />
-                <DataGridTextColumn Binding="{Binding RegDate}" Header="Regested Date" />
-                <DataGridCheckBoxColumn Binding="{Binding IsUse}" Header="Use" />
+                <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay}" Header="Name" />
+                <DataGridTextColumn Binding="{Binding Phone, Mode=TwoWay}" Header="Phone" />
+                <DataGridTextColumn Binding="{Binding RegDate, StringFormat={}{0:d}}" Header="Regested Date" />
+                <DataGridCheckBoxColumn Binding="{Binding IsUse, Mode=TwoWay}" Header="Use" />
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel
@@ -51,11 +51,13 @@
                 x:Name="EditButton"
                 Width="80"
                 Margin="5,0,0,0"
+                Click="EditButton_Click"
                 Content="Edit" />
             <Button
                 x:Name="DeleteButton"
                 Width="80"
                 Margin="5,0,0,0"
+                Click="DeleteButton_Click"
                 Content="Delete" />
             <Button
                 x:Name="SaveButton"
@@ -72,6 +74,7 @@
                 Visibility="Collapsed" />
         </StackPanel>
         <Grid
+            x:Name="DetailGrid"
             Grid.Row="1"
             Grid.Column="1"
             Margin="0,10,0,0">
@@ -151,7 +154,9 @@
                 x:Name="IsUse"
                 Grid.Row="4"
                 Grid.Column="1"
-                Margin="4" />
+                Margin="4"
+                Checked="IsUse_Checked"
+                Unchecked="IsUse_Unchecked" />
         </Grid>
     </Grid>
 </Window>

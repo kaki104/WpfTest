@@ -34,12 +34,21 @@ namespace CrudSample.Event
 
         private void Init()
         {
-            MemberGrid.ItemsSource = _members;
+            _members.Add(new Member 
+            {
+                Id = 1,
+                Name = "kaki104",
+                Phone = "010-1111-2222",
+                RegDate = DateTime.Now,
+                IsUse = true,
+            });
+            MemberDataGrid.ItemsSource = _members;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            ChangeButtonVisibility();
+            ChangeButtonIsEnable();
         }
 
         private void NewButton_Click(object sender, RoutedEventArgs e)
@@ -67,6 +76,7 @@ namespace CrudSample.Event
                 DeleteButton.Visibility = Visibility.Collapsed;
                 SaveButton.Visibility = Visibility.Visible;
                 CancelButton.Visibility = Visibility.Visible;
+                DetailGrid.IsEnabled = true;
             }
             else
             {
@@ -75,6 +85,7 @@ namespace CrudSample.Event
                 DeleteButton.Visibility = Visibility.Visible;
                 SaveButton.Visibility = Visibility.Collapsed;
                 CancelButton.Visibility = Visibility.Collapsed;
+                DetailGrid.IsEnabled = false;
             }
         }
 
@@ -99,8 +110,8 @@ namespace CrudSample.Event
                     IsUse = true
                 };
                 _members.Add(newMember);
-                ClearDetail();
             }
+            ClearDetail();
             ChangeButtonVisibility();
         }
 
@@ -114,6 +125,8 @@ namespace CrudSample.Event
             member.Name = Name.Text;
             member.Phone = Phone.Text;
             member.IsUse = IsUse.IsChecked == true ? true : false;
+            MemberDataGrid.ItemsSource = null;
+            MemberDataGrid.ItemsSource = _members;
         }
 
         private void DisplayMember(Member source)
@@ -128,6 +141,7 @@ namespace CrudSample.Event
             Phone.Text = source.Phone.ToString();
             RegDate.Text = source.RegDate.ToString();
             IsUse.IsChecked = source.IsUse;
+            IsUse.Content = source.IsUse ? "사용" : "미사용";
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -138,7 +152,53 @@ namespace CrudSample.Event
 
         private void MemberGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DisplayMember(MemberGrid.SelectedItem as Member);
+            DisplayMember(MemberDataGrid.SelectedItem as Member);
+            ChangeButtonIsEnable();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            _isEditing = true;
+            ChangeButtonVisibility();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MemberDataGrid.SelectedItem == null)
+            {
+                return;
+            }
+            var result = MessageBox.Show("선택된 아이템을 삭제하시겠습니까?", "삭제 확인", MessageBoxButton.YesNo);
+            if(result == MessageBoxResult.No)
+            {
+                return;
+            }
+            var removeItem = MemberDataGrid.SelectedItem as Member;
+            _members.Remove(removeItem);
+        }
+
+        private void IsUse_Checked(object sender, RoutedEventArgs e)
+        {
+            IsUse.Content = IsUse.IsChecked == true ? "사용" : "미사용";
+        }
+
+        private void IsUse_Unchecked(object sender, RoutedEventArgs e)
+        {
+            IsUse.Content = IsUse.IsChecked == true ? "사용" : "미사용";
+        }
+
+        private void ChangeButtonIsEnable()
+        {
+            if(MemberDataGrid.SelectedItem == null)
+            {
+                EditButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
+            }
+            else
+            {
+                EditButton.IsEnabled = true;
+                DeleteButton.IsEnabled = true;
+            }
         }
     }
 }
