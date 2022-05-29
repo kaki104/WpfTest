@@ -49,15 +49,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInversionSample",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInversionSample.Common", "DependencyInversionSample.Common\DependencyInversionSample.Common.csproj", "{B68494A2-3CD0-4680-A69B-5B6C34D7BB44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudSample.Event", "CrudSample.Event\CrudSample.Event.csproj", "{A25BDD95-7496-46AF-BBA1-C1317BA7F5AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudSample.Event", "CrudSample.Event\CrudSample.Event.csproj", "{A25BDD95-7496-46AF-BBA1-C1317BA7F5AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudSample.Core", "CrudSample.Core\CrudSample.Core.csproj", "{1E9233B7-5BA3-4B0D-B803-904AE2B8C5F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudSample.Core", "CrudSample.Core\CrudSample.Core.csproj", "{1E9233B7-5BA3-4B0D-B803-904AE2B8C5F5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrudSample", "CrudSample", "{041FB55F-7ED6-4055-852E-38D555F3FA2C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInversion", "DependencyInversion", "{7535AC2F-2955-47DA-AB2A-E75111782A7F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResourceDictionary", "ResourceDictionary", "{D2CD47F4-579A-4B2C-A783-3D10BD9392C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudSample.Mvvm", "CrudSample.Mvvm\CrudSample.Mvvm.csproj", "{80426636-28AA-4D5F-8C9F-FB907DA635DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -573,6 +575,26 @@ Global
 		{1E9233B7-5BA3-4B0D-B803-904AE2B8C5F5}.Release|x64.Build.0 = Release|Any CPU
 		{1E9233B7-5BA3-4B0D-B803-904AE2B8C5F5}.Release|x86.ActiveCfg = Release|Any CPU
 		{1E9233B7-5BA3-4B0D-B803-904AE2B8C5F5}.Release|x86.Build.0 = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|ARM.Build.0 = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|x64.Build.0 = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Debug|x86.Build.0 = Debug|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|ARM.ActiveCfg = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|ARM.Build.0 = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|ARM64.Build.0 = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|x64.Build.0 = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -584,6 +606,7 @@ Global
 		{B68494A2-3CD0-4680-A69B-5B6C34D7BB44} = {7535AC2F-2955-47DA-AB2A-E75111782A7F}
 		{A25BDD95-7496-46AF-BBA1-C1317BA7F5AA} = {041FB55F-7ED6-4055-852E-38D555F3FA2C}
 		{1E9233B7-5BA3-4B0D-B803-904AE2B8C5F5} = {041FB55F-7ED6-4055-852E-38D555F3FA2C}
+		{80426636-28AA-4D5F-8C9F-FB907DA635DC} = {041FB55F-7ED6-4055-852E-38D555F3FA2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {202C03BB-F0ED-4DEF-BBA6-9210ADAAAA00}

@@ -1,15 +1,22 @@
 ﻿<Window
-    x:Class="CrudSample.Event.MainWindow"
+    x:Class="CrudSample.Mvvm.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:CrudSample.Mvvm.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:CrudSample.Event"
+    xmlns:local="clr-namespace:CrudSample.Mvvm"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="800"
     Height="450"
-    Loaded="Window_Loaded"
     mc:Ignorable="d">
+    <Window.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters:BoolToVisibilityConverter
+            x:Key="ReversBoolToVisibilityConverter"
+            FalseValue="Visible"
+            TrueValue="Collapsed" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -29,7 +36,7 @@
             Margin="0,10,0,0"
             AutoGenerateColumns="False"
             IsReadOnly="True"
-            SelectionChanged="MemberGrid_SelectionChanged">
+            ItemsSource="{Binding Members}">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay}" Header="Name" />
                 <DataGridTextColumn Binding="{Binding Phone, Mode=TwoWay}" Header="Phone" />
@@ -45,39 +52,40 @@
             <Button
                 x:Name="NewButton"
                 Width="80"
-                Click="NewButton_Click"
-                Content="New" />
+                Command="{Binding NewCommand}"
+                Content="New"
+                Visibility="{Binding IsEditing, Converter={StaticResource ReversBoolToVisibilityConverter}}" />
             <Button
                 x:Name="EditButton"
                 Width="80"
                 Margin="5,0,0,0"
-                Click="EditButton_Click"
-                Content="Edit" />
+                Content="Edit"
+                Visibility="{Binding IsEditing, Converter={StaticResource ReversBoolToVisibilityConverter}}" />
             <Button
                 x:Name="DeleteButton"
                 Width="80"
                 Margin="5,0,0,0"
-                Click="DeleteButton_Click"
-                Content="Delete" />
+                Content="Delete"
+                Visibility="{Binding IsEditing, Converter={StaticResource ReversBoolToVisibilityConverter}}" />
             <Button
                 x:Name="SaveButton"
                 Width="80"
-                Click="SaveButton_Click"
                 Content="Save"
-                Visibility="Collapsed" />
+                Visibility="{Binding IsEditing, Converter={StaticResource BoolToVisibilityConverter}}" />
             <Button
                 x:Name="CancelButton"
                 Width="80"
                 Margin="5,0,0,0"
-                Click="CancelButton_Click"
+                Command="{Binding CancelCommand}"
                 Content="Cancel"
-                Visibility="Collapsed" />
+                Visibility="{Binding IsEditing, Converter={StaticResource BoolToVisibilityConverter}}" />
         </StackPanel>
         <Grid
             x:Name="DetailGrid"
             Grid.Row="1"
             Grid.Column="1"
-            Margin="0,10,0,0">
+            Margin="0,10,0,0"
+            IsEnabled="{Binding IsEditing}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.3*" />
                 <ColumnDefinition Width="0.7*" />
@@ -154,9 +162,7 @@
                 x:Name="IsUse"
                 Grid.Row="4"
                 Grid.Column="1"
-                Margin="4"
-                Checked="IsUse_Checked"
-                Unchecked="IsUse_Unchecked" />
+                Margin="4" />
         </Grid>
     </Grid>
 </Window>
