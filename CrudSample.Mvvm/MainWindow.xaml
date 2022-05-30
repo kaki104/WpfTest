@@ -2,11 +2,12 @@
     x:Class="CrudSample.Mvvm.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:converters="clr-namespace:CrudSample.Mvvm.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CrudSample.Mvvm"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="Mvvm -&gt; MainWindow"
     Width="800"
     Height="450"
     mc:Ignorable="d">
@@ -37,6 +38,11 @@
             AutoGenerateColumns="False"
             IsReadOnly="True"
             ItemsSource="{Binding Members}">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="SelectionChanged">
+                    <b:InvokeCommandAction Command="{Binding SelectionChangedCommand}" PassEventArgsToCommand="True" />
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay}" Header="Name" />
                 <DataGridTextColumn Binding="{Binding Phone, Mode=TwoWay}" Header="Phone" />
@@ -106,7 +112,8 @@
             <TextBlock
                 x:Name="Id"
                 Grid.Column="1"
-                Margin="4" />
+                Margin="4"
+                Text="{Binding EditMember.Id}" />
             <Border
                 Grid.Row="1"
                 Margin="4"
@@ -120,7 +127,8 @@
                 x:Name="Name"
                 Grid.Row="1"
                 Grid.Column="1"
-                Margin="4" />
+                Margin="4"
+                Text="{Binding EditMember.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Border
                 Grid.Row="2"
                 Margin="4"
@@ -134,7 +142,8 @@
                 x:Name="Phone"
                 Grid.Row="2"
                 Grid.Column="1"
-                Margin="4" />
+                Margin="4"
+                Text="{Binding EditMember.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Border
                 Grid.Row="3"
                 Margin="4"
@@ -148,7 +157,8 @@
                 x:Name="RegDate"
                 Grid.Row="3"
                 Grid.Column="1"
-                Margin="4" />
+                Margin="4"
+                Text="{Binding EditMember.RegDate}" />
             <Border
                 Grid.Row="4"
                 Margin="4"
@@ -162,7 +172,8 @@
                 x:Name="IsUse"
                 Grid.Row="4"
                 Grid.Column="1"
-                Margin="4" />
+                Margin="4"
+                IsChecked="{Binding EditMember.IsUse, Mode=TwoWay}" />
         </Grid>
     </Grid>
 </Window>
