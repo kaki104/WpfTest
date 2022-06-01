@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace CrudSample.Mvvm
@@ -68,15 +69,47 @@ namespace CrudSample.Mvvm
             CancelCommand = new RelayCommand(() => IsEditing = false);
             SelectionChangedCommand = new RelayCommand<object>(OnSelectionChanged);
 
-            //EditCommand = new RelayCommand(() => IsEditing = true, () => EditMember != null);
+            EditCommand = new RelayCommand(() => IsEditing = true, () => EditMember != null);
+            DeleteCommand = new RelayCommand(OnDelete, () => EditMember != null);
+
+            PropertyChanged += MainViewModel_PropertyChanged;
+        }
+
+        private void MainViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            switch(e.PropertyName)
+            {
+                case nameof(EditMember):
+                    EditCommand.NotifyCanExecuteChanged();
+                    DeleteCommand.NotifyCanExecuteChanged();
+                    break;
+            }
+        }
+
+        private void OnDelete()
+        {
+            var result = MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+            IsEditing = false;
+            var removeMember = Members.FirstOrDefault(m => m.Id == EditMember.Id);
+            if(removeMember != null)
+            {
+                Members.Remove(removeMember);
+            }
+            EditMember = null;
+
         }
 
         private void OnNew()
         {
             IsEditing = true;
+            var id = Members.Any() ? Members.Max(m => m.Id) + 1 : 1;
             EditMember = new Member
             {
-                Id = Members.Max(m => m.Id) + 1,
+                Id = id,
                 RegDate = DateTime.Now
             };
         }

@@ -65,12 +65,14 @@
                 x:Name="EditButton"
                 Width="80"
                 Margin="5,0,0,0"
+                Command="{Binding EditCommand}"
                 Content="Edit"
                 Visibility="{Binding IsEditing, Converter={StaticResource ReversBoolToVisibilityConverter}}" />
             <Button
                 x:Name="DeleteButton"
                 Width="80"
                 Margin="5,0,0,0"
+                Command="{Binding DeleteCommand}"
                 Content="Delete"
                 Visibility="{Binding IsEditing, Converter={StaticResource ReversBoolToVisibilityConverter}}" />
             <Button
