@@ -1,18 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System;
 
 namespace CrudSample.Core.Models
 {
-    public class Member : ICloneable
+    public class Member : ObservableObject, ICloneable
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+        }
+        private string _phone;
+        public string Phone
+        {
+            get { return _phone; }
+            set { SetProperty(ref _phone, value); }
+        }
         public DateTime RegDate { get; set; }
-        public bool IsUse { get; set; }
+        private bool _isUse;
+        public bool IsUse
+        {
+            get { return _isUse; }
+            set { SetProperty(ref _isUse, value); }
+        }
 
         public object Clone()
         {

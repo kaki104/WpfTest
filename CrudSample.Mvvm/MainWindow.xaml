@@ -44,10 +44,11 @@
                 </b:EventTrigger>
             </b:Interaction.Triggers>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name, Mode=TwoWay}" Header="Name" />
-                <DataGridTextColumn Binding="{Binding Phone, Mode=TwoWay}" Header="Phone" />
-                <DataGridTextColumn Binding="{Binding RegDate, StringFormat={}{0:d}}" Header="Regested Date" />
-                <DataGridCheckBoxColumn Binding="{Binding IsUse, Mode=TwoWay}" Header="Use" />
+                <DataGridTextColumn Binding="{Binding Id}" Header="Name" />
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" />
+                <DataGridTextColumn Binding="{Binding RegDate, StringFormat={}{0:d}}" Header="Registed Date" />
+                <DataGridCheckBoxColumn Binding="{Binding IsUse}" Header="Use" />
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel
@@ -78,6 +79,7 @@
             <Button
                 x:Name="SaveButton"
                 Width="80"
+                Command="{Binding SaveCommand}"
                 Content="Save"
                 Visibility="{Binding IsEditing, Converter={StaticResource BoolToVisibilityConverter}}" />
             <Button
@@ -160,7 +162,7 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 Margin="4"
-                Text="{Binding EditMember.RegDate}" />
+                Text="{Binding EditMember.RegDate, StringFormat={}{0:d}}" />
             <Border
                 Grid.Row="4"
                 Margin="4"
