@@ -1,0 +1,71 @@
+﻿<Window
+    x:Class="kakaomap.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:kakaomap"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:kakaomap.ViewModel"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <viewModel:Kakaovm />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">검색어:</TextBlock>
+
+        <TextBox
+            Name="tbox_query"
+            Grid.Column="1"
+            Margin="5,0,5,0"
+            VerticalAlignment="Center"
+            Background="Gray"
+            Text="{Binding InputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button
+            Name="btn_search"
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            Command="{Binding SearchCommand}"
+            Content="검색"
+            IsDefault="True" />
+
+
+        <ListBox
+            Name="lbox_locale"
+            Grid.Row="1"
+            Background=" Cyan"
+            ItemsSource="{Binding MyLocales}"
+            SelectedItem="{Binding SelectedMyLocale, Mode=TwoWay}" />
+
+        <Button
+            Grid.Row="1"
+            Margin="0,335,0,0"
+            Content="선택완료" />
+
+
+        <WebBrowser
+            Name="wb"
+            Grid.Row=" 1"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Source="pack://siteoforigin:,,,/kakaomap.html">
+            <b:Interaction.Behaviors>
+                <local:WebBrowserBehavior SelectedMyLocale="{Binding SelectedMyLocale}" />
+            </b:Interaction.Behaviors>
+        </WebBrowser>
+    </Grid>
+</Window>
