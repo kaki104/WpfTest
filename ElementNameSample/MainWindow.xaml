@@ -1,0 +1,52 @@
+﻿<Window
+    x:Class="ElementNameSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ElementNameSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Grid x:Name="RootGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="LeftStackPanel" Margin="10">
+            <Slider
+                x:Name="AgeSlider"
+                Maximum="100"
+                Minimum="1" />
+            <TextBlock Text="Age" />
+            <TextBlock Text="{Binding ElementName=AgeSlider, Path=Value, StringFormat={}{0:N0}}" />
+            <TextBlock Text="LeftStackPanel Size" />
+            <TextBlock>
+                <Run Text="{Binding ElementName=LeftStackPanel, Path=ActualWidth, Mode=OneWay, StringFormat={}{0:N0}}" />
+                :<Run Text="{Binding ElementName=LeftStackPanel, Path=ActualHeight, Mode=OneWay, StringFormat={}{0:N0}}" />
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <ListBox x:Name="PeopleList" ItemsSource="{Binding People}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ElementName=AgeSlider, Path=Value, StringFormat={}{0:N0}}" />
+                            <TextBlock Margin="5,0" Text="{Binding Id}" />
+                            <TextBlock Margin="5,0" Text="{Binding Name}" />
+                            <TextBlock Margin="5,0" Text="{Binding Sex}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock Text="Selected Item" />
+            <TextBlock Text="{Binding ElementName=PeopleList, Path=SelectedItem.Id}" />
+            <TextBlock Text="{Binding ElementName=PeopleList, Path=SelectedItem.Name}" />
+            <TextBlock Text="{Binding ElementName=PeopleList, Path=SelectedItem.Sex}" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,82 @@
+﻿<Window
+    x:Class="SourceSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SourceSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <local:Person
+            x:Key="CreateUser"
+            Name="kaki104"
+            Id="1"
+            Sex="True" />
+        <Style x:Key="ContentControlStyle1" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="Blue"
+                                Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(local:MessageExt.Message)}" />
+                            <ContentPresenter Grid.Row="1" />
+                        </Grid>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10">
+            <TextBlock Text="Edit Current User" />
+            <TextBlock Text="{Binding Source={StaticResource CreateUser}, Path=Id}" />
+            <TextBox Text="{Binding Source={StaticResource CreateUser}, Path=Name, UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox IsChecked="{Binding Source={StaticResource CreateUser}, Path=Sex, Mode=TwoWay}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Source={StaticResource CreateUser}, Path=Id}" />
+                <TextBlock Grid.Column="1" Text="{Binding Source={StaticResource CreateUser}, Path=Name}" />
+                <TextBlock Grid.Column="2" Text="{Binding Source={StaticResource CreateUser}, Path=Sex}" />
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="MainWindow Title" />
+            <TextBlock Text="{Binding Source={x:Static Application.Current}, Path=MainWindow.Title}" />
+            <TextBlock Text="ShutdownMode" />
+            <TextBlock Text="{Binding Source={x:Static Application.Current}, Path=ShutdownMode}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBox x:Name="HeaderTextBox" Text="ContentControl의 해더를 입력하세요" />
+            <!--  Style="{StaticResource ContentControlStyle1}"  -->
+            <ContentControl local:MessageExt.Message="{Binding ElementName=HeaderTextBox, Path=Text}" Style="{StaticResource ContentControlStyle1}">
+                <ContentControl.Content>
+                    <StackPanel>
+                        <TextBlock Text="여기는 컨텐츠 컨트롤의 컨텐츠 영역입니다." />
+                    </StackPanel>
+                </ContentControl.Content>
+            </ContentControl>
+        </StackPanel>
+    </Grid>
+</Window>
