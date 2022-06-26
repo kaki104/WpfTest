@@ -1,0 +1,56 @@
+﻿<Window
+    x:Class="ConverterSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ConverterSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    Loaded="Window_Loaded"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <local:BoolToStringConverter x:Key="BoolToStringConverter" />
+        <local:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <local:BoolToVisibilityConverter
+            x:Key="BoolToVisibilityReverseConverter"
+            FalseVisibility="Visible"
+            TrueVisibility="Collapsed" />
+        <local:StringCompareParameterToBoolConverter x:Key="StringCompareParameterToBoolConverter" />
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DataGrid
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            IsReadOnly="True"
+            ItemsSource="{Binding People}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" />
+                <DataGridTextColumn Binding="{Binding Name}" Header="이름" />
+                <DataGridTextColumn Binding="{Binding Sex, Converter={StaticResource BoolToStringConverter}}" Header="성별" />
+                <DataGridTextColumn Binding="{Binding DepartmentCode}" Header="부서" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Column="1" Margin="5">
+            <CheckBox Content="Test InvertedBooleanConverter" IsChecked="{Binding IsEdit, Mode=TwoWay}" />
+            <TextBlock Text="IsEnabled Binding" />
+            <TextBox IsEnabled="{Binding IsEdit}" />
+            <TextBlock Text="IsReadOnly Binding" />
+            <TextBox IsReadOnly="{Binding IsEdit, Converter={StaticResource InvertedBooleanConverter}}" />
+            <TextBlock Text="IsEdit is true" Visibility="{Binding IsEdit, Converter={StaticResource BoolToVisibilityConverter}}" />
+            <TextBlock Text="IsEdit is false" Visibility="{Binding IsEdit, Converter={StaticResource BoolToVisibilityReverseConverter}}" />
+            <TextBlock Text="Test StringCompareParameterToBoolConverter" />
+            <TextBox x:Name="Fruit" />
+            <CheckBox IsChecked="{Binding ElementName=Fruit, Path=Text, Converter={StaticResource StringCompareParameterToBoolConverter}, ConverterParameter=apple|banana|strawberry}" />
+        </StackPanel>
+    </Grid>
+</Window>
