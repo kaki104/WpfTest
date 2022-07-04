@@ -23,6 +23,14 @@
             <Button Command="{Binding NormalCommand}" Content="Normal" />
             <TextBlock Text="{Binding AsyncCommand.IsRunning}" />
             <Button Command="{Binding AsyncCommand}" Content="Async" />
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <TextBlock Text="{Binding SelectedPerson.Name}" />
+                <Button
+                    Width="70"
+                    Margin="10,0,0,0"
+                    Command="{Binding DeleteCommand}"
+                    Content="Delete" />
+            </StackPanel>
             <ListView x:Name="PeopleListView" ItemsSource="{Binding People}">
                 <b:Interaction.Triggers>
                     <b:EventTrigger EventName="SelectionChanged">
