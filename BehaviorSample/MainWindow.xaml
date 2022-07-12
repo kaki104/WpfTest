@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="BehaviorSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BehaviorSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Style x:Key="AttachedTextBoxExStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="local:TextBoxExBehavior.IsEnabledForStyle" Value="True" />
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="5">
+            <TextBlock Text="Please enter your user information" />
+            <TextBlock Text="Name" />
+            <TextBox Text="{Binding Name}">
+                <b:Interaction.Behaviors>
+                    <local:TextBoxBehavior EnterCommand="{Binding EnterCommand}" />
+                </b:Interaction.Behaviors>
+            </TextBox>
+            <TextBlock Text="Phone" />
+            <TextBox Text="{Binding Phone}">
+                <b:Interaction.Behaviors>
+                    <local:TextBoxBehavior />
+                </b:Interaction.Behaviors>
+            </TextBox>
+            <TextBlock Text="Email" />
+            <TextBox Text="{Binding Email}">
+                <b:Interaction.Behaviors>
+                    <local:TextBoxBehavior EnterCommand="{Binding EnterCommand}" />
+                </b:Interaction.Behaviors>
+            </TextBox>
+            <Button Margin="0,10,0,0" Content="Send" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="5">
+            <TextBlock Text="Please enter your user information" />
+            <TextBlock Text="Address" />
+            <TextBox Style="{StaticResource AttachedTextBoxExStyle}" Text="{Binding Address}" />
+            <TextBlock Text="Company" />
+            <TextBox Style="{StaticResource AttachedTextBoxExStyle}" Text="{Binding Company}" />
+            <TextBlock Text="Description" />
+            <TextBox Style="{StaticResource AttachedTextBoxExStyle}" Text="{Binding Description}" />
+            <Button Margin="0,10,0,0" Content="Send" />
+        </StackPanel>
+    </Grid>
+</Window>
