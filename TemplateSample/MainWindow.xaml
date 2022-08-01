@@ -109,13 +109,21 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel1">
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel0">
             <StackPanel />
         </ItemsPanelTemplate>
-    </Window.Resources>
-
-    <Grid>
-        <Grid.ColumnDefinitions>
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel1">
+            <StackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel2">
+            <WrapPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel3">
+            <Canvas IsItemsHost="True" />
+        </ItemsPanelTemplate>
+        <DataTemplate x:Key="ItemTemplate1">
+            <Grid>
+                <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -131,19 +139,59 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="20" />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Id}" />
-                            <TextBlock Grid.Column="1" Text="{Binding Name}" />
-                            <TextBlock Grid.Column="2" Text="{Binding Sex}" />
-                            <TextBlock Grid.Column="3" Text="{Binding Description}" />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Id}" />
+                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                <TextBlock Grid.Column="2" Text="{Binding Sex}" />
+                <TextBlock Grid.Column="3" Text="{Binding Description}" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Content="Normal Button" />
+            <Button Content="Round Button" Style="{DynamicResource RoundButtonStyle}" />
+            <ItemsControl
+                x:Name="ItemsControl0"
+                BorderBrush="Black"
+                BorderThickness="1"
+                ItemTemplate="{StaticResource ItemTemplate1}"
+                ItemsPanel="{StaticResource ItemsControlItemsPanel0}" />
+            <ItemsControl
+                x:Name="ItemsControl1"
+                BorderBrush="Red"
+                BorderThickness="1"
+                ItemTemplate="{StaticResource ItemTemplate1}"
+                ItemsPanel="{StaticResource ItemsControlItemsPanel1}" />
+            <ItemsControl
+                x:Name="ItemsControl2"
+                BorderBrush="Blue"
+                BorderThickness="1"
+                ItemTemplate="{StaticResource ItemTemplate1}"
+                ItemsPanel="{StaticResource ItemsControlItemsPanel2}" />
         </StackPanel>
+        <ItemsControl
+            x:Name="ItemsControl3"
+            Grid.Column="1"
+            BorderThickness="1"
+            ItemTemplate="{StaticResource ItemTemplate1}"
+            ItemsPanel="{StaticResource ItemsControlItemsPanel3}">
+            <ItemsControl.Resources>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding X}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                </Style>
+            </ItemsControl.Resources>
+        </ItemsControl>
+
     </Grid>
 </Window>
