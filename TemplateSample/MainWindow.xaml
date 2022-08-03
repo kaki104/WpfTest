@@ -124,21 +124,6 @@
         <DataTemplate x:Key="ItemTemplate1">
             <Grid>
                 <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <StackPanel>
-            <Button Content="Normal Button" />
-            <Button Content="Round Button" Style="{DynamicResource RoundButtonStyle}" />
-            <!--  DisplayMemberPath="Name"  -->
-            <ItemsControl
-                x:Name="ItemsControl"
-                BorderBrush="Red"
-                BorderThickness="1">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20" />
                     <ColumnDefinition />
                     <ColumnDefinition />
