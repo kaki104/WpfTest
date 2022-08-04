@@ -135,10 +135,20 @@
                 <TextBlock Grid.Column="3" Text="{Binding Description}" />
             </Grid>
         </DataTemplate>
+        <Style x:Key="ContentControlStyle1" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <ContentPresenter />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -177,6 +187,9 @@
                 </Style>
             </ItemsControl.Resources>
         </ItemsControl>
-
+        <ContentControl
+            Grid.Column="2"
+            VerticalAlignment="Center"
+            Content="Hello kaki" />
     </Grid>
 </Window>
