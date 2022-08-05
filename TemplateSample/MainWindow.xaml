@@ -1,0 +1,295 @@
+﻿<Window
+    x:Class="TemplateSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TemplateSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    Loaded="Window_Loaded"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <!--  Button ControlTemplate  -->
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle
+                            Margin="2"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+        <Style x:Key="RoundButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10"
+                            SnapsToDevicePixels="true">
+                            <Grid HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock VerticalAlignment="Center" Text="😊" />
+                                <ContentPresenter
+                                    x:Name="contentPresenter"
+                                    Grid.Column="1"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Focusable="False"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.MouseOver.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.MouseOver.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ItemsControlStyle1" TargetType="{x:Type ItemsControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ItemsControl}">
+                        <Border
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--  ItemsPanelTemplate  -->
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel0">
+            <StackPanel />
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel1">
+            <StackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel2">
+            <WrapPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+        <ItemsPanelTemplate x:Key="ItemsControlItemsPanel3">
+            <Canvas IsItemsHost="True" />
+        </ItemsPanelTemplate>
+        <DataTemplate x:Key="ItemTemplate1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Id}" />
+                <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                <TextBlock Grid.Column="2" Text="{Binding Sex}" />
+                <TextBlock Grid.Column="3" Text="{Binding Description}" />
+            </Grid>
+        </DataTemplate>
+        <!--  ContentControl ControlTemplate  -->
+        <Style x:Key="ContentControlStyle1" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <ContentPresenter />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--  PathStyle  -->
+        <Style x:Key="PathStyle" TargetType="Path">
+            <Setter Property="Stretch" Value="Uniform" />
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <TransformGroup.Children>
+                            <RotateTransform Angle="0" />
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </TransformGroup.Children>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--  PathIcons  -->
+        <DataTemplate x:Key="PathClear">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Path
+                    Grid.RowSpan="2"
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M1.8002373,17.934131L11.78916,27.92324 32.000004,27.92324 32.000004,30.246261 11.093165,30.246261 11.093165,28.619502 9.0021781,30.711291C8.3051776,31.408257,7.3761987,31.408257,6.6791977,30.711291L1.5682294,25.600219C-0.52274312,23.510173,-0.52274312,20.257152,1.5682294,18.167165z M19.756094,0L29.777014,10.021091 13.843144,25.955203 3.8232168,15.934112z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    Text="{Binding Name}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    Text="{Binding Description}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="PathAdd">
+            <StackPanel>
+                <Path
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M0,11.605016L3.6729971,11.605016 3.6729971,18.52201 28.327011,18.52201 28.327011,11.605016 32.000002,11.605016 32.000002,22.193002 28.327011,22.193002 3.6729971,22.193002 0,22.193002z M14.148006,0L17.848003,0.0029907228 17.848003,5.4570027 23.307005,5.4590169 23.304006,9.1570168 17.848003,9.1579934 17.848003,14.614019 14.148006,14.616003 14.148006,9.1579934 8.6930026,9.1600076 8.6930026,5.4559956 14.148006,5.4570027z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="{Binding}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PathDelete">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Path
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M3.7399902,0L16,12.258972 28.26001,0 32,3.7399902 19.73999,16 32,28.258972 28.26001,32 16,19.73999 3.7399902,32 0,28.258972 12.26001,16 0,3.7399902z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="{Binding}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PathSave">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Path
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M5.4189969,24.678986L5.4189969,27.915009 26.188982,27.915009 26.188982,24.678986z M8.2970601,0.038998604L12.289056,0.038998604 12.289056,8.1850023 8.2970601,8.1850023z M0,0L5.2730013,0 5.2730013,9.7799988 26.188982,9.7799988 26.188982,0 31.653999,0 31.653999,32 0,32z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="{Binding}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Content="Normal Button" />
+            <Button Content="Round Button" Style="{DynamicResource RoundButtonStyle}" />
+            <ItemsControl
+                x:Name="ItemsControl0"
+                BorderBrush="Black"
+                BorderThickness="1"
+                ItemTemplate="{StaticResource ItemTemplate1}"
+                ItemsPanel="{StaticResource ItemsControlItemsPanel0}" />
+            <ItemsControl
+                x:Name="ItemsControl1"
+                BorderBrush="Red"
+                BorderThickness="1"
+                ItemTemplate="{StaticResource ItemTemplate1}"
+                ItemsPanel="{StaticResource ItemsControlItemsPanel1}" />
+            <ItemsControl
+                x:Name="ItemsControl2"
+                BorderBrush="Blue"
+                BorderThickness="1"
+                ItemTemplate="{StaticResource ItemTemplate1}"
+                ItemsPanel="{StaticResource ItemsControlItemsPanel2}" />
+        </StackPanel>
+        <ItemsControl
+            x:Name="ItemsControl3"
+            Grid.Column="1"
+            BorderThickness="1"
+            ItemTemplate="{StaticResource ItemTemplate1}"
+            ItemsPanel="{StaticResource ItemsControlItemsPanel3}">
+            <ItemsControl.Resources>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding X}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                </Style>
+            </ItemsControl.Resources>
+        </ItemsControl>
+        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+            <ContentControl Content="Hello kaki" />
+            <ContentControl x:Name="PersonContentControl" ContentTemplate="{StaticResource PathClear}" />
+            <ContentControl
+                Padding="4"
+                Content="Add"
+                ContentTemplate="{StaticResource PathAdd}"
+                Foreground="Red" />
+            <ContentControl
+                Padding="4"
+                Content="Delete"
+                ContentTemplate="{StaticResource PathDelete}"
+                Foreground="Green" />
+            <ContentControl
+                Margin="4"
+                Content="Save"
+                ContentTemplate="{StaticResource PathSave}"
+                Foreground="Blue" />
+        </StackPanel>
+    </Grid>
+</Window>
