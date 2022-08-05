@@ -12,6 +12,7 @@
     Loaded="Window_Loaded"
     mc:Ignorable="d">
     <Window.Resources>
+        <!--  Button ControlTemplate  -->
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -109,6 +110,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--  ItemsPanelTemplate  -->
         <ItemsPanelTemplate x:Key="ItemsControlItemsPanel0">
             <StackPanel />
         </ItemsPanelTemplate>
@@ -135,6 +137,7 @@
                 <TextBlock Grid.Column="3" Text="{Binding Description}" />
             </Grid>
         </DataTemplate>
+        <!--  ContentControl ControlTemplate  -->
         <Style x:Key="ContentControlStyle1" TargetType="{x:Type ContentControl}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -144,6 +147,88 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--  PathStyle  -->
+        <Style x:Key="PathStyle" TargetType="Path">
+            <Setter Property="Stretch" Value="Uniform" />
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <TransformGroup.Children>
+                            <RotateTransform Angle="0" />
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </TransformGroup.Children>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--  PathIcons  -->
+        <DataTemplate x:Key="PathClear">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Path
+                    Grid.RowSpan="2"
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M1.8002373,17.934131L11.78916,27.92324 32.000004,27.92324 32.000004,30.246261 11.093165,30.246261 11.093165,28.619502 9.0021781,30.711291C8.3051776,31.408257,7.3761987,31.408257,6.6791977,30.711291L1.5682294,25.600219C-0.52274312,23.510173,-0.52274312,20.257152,1.5682294,18.167165z M19.756094,0L29.777014,10.021091 13.843144,25.955203 3.8232168,15.934112z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    Text="{Binding Name}" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    Text="{Binding Description}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="PathAdd">
+            <StackPanel>
+                <Path
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M0,11.605016L3.6729971,11.605016 3.6729971,18.52201 28.327011,18.52201 28.327011,11.605016 32.000002,11.605016 32.000002,22.193002 28.327011,22.193002 3.6729971,22.193002 0,22.193002z M14.148006,0L17.848003,0.0029907228 17.848003,5.4570027 23.307005,5.4590169 23.304006,9.1570168 17.848003,9.1579934 17.848003,14.614019 14.148006,14.616003 14.148006,9.1579934 8.6930026,9.1600076 8.6930026,5.4559956 14.148006,5.4570027z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="{Binding}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PathDelete">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Path
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M3.7399902,0L16,12.258972 28.26001,0 32,3.7399902 19.73999,16 32,28.258972 28.26001,32 16,19.73999 3.7399902,32 0,28.258972 12.26001,16 0,3.7399902z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="{Binding}" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PathSave">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Path
+                    Margin="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Padding}"
+                    Data="M5.4189969,24.678986L5.4189969,27.915009 26.188982,27.915009 26.188982,24.678986z M8.2970601,0.038998604L12.289056,0.038998604 12.289056,8.1850023 8.2970601,8.1850023z M0,0L5.2730013,0 5.2730013,9.7799988 26.188982,9.7799988 26.188982,0 31.653999,0 31.653999,32 0,32z"
+                    Fill="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=Foreground}"
+                    Style="{StaticResource PathStyle}" />
+                <TextBlock
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="{Binding}" />
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
@@ -187,9 +272,24 @@
                 </Style>
             </ItemsControl.Resources>
         </ItemsControl>
-        <ContentControl
-            Grid.Column="2"
-            VerticalAlignment="Center"
-            Content="Hello kaki" />
+        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+            <ContentControl Content="Hello kaki" />
+            <ContentControl x:Name="PersonContentControl" ContentTemplate="{StaticResource PathClear}" />
+            <ContentControl
+                Padding="4"
+                Content="Add"
+                ContentTemplate="{StaticResource PathAdd}"
+                Foreground="Red" />
+            <ContentControl
+                Padding="4"
+                Content="Delete"
+                ContentTemplate="{StaticResource PathDelete}"
+                Foreground="Green" />
+            <ContentControl
+                Margin="4"
+                Content="Save"
+                ContentTemplate="{StaticResource PathSave}"
+                Foreground="Blue" />
+        </StackPanel>
     </Grid>
 </Window>

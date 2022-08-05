@@ -40,6 +40,7 @@ namespace TemplateSample
             ItemsControl1.ItemsSource = list;
             ItemsControl2.ItemsSource = list;
             ItemsControl3.ItemsSource = list;
+            PersonContentControl.Content = list.FirstOrDefault();
         }
     }
 }
