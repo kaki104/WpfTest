@@ -158,6 +158,25 @@
                 </DataTemplate>
             </local:MessageDataTemplateSelector.SystemDataTemplate>
         </local:MessageDataTemplateSelector>
+
+        <local:MessageStyleSelector x:Key="MessageStyleSelector">
+            <local:MessageStyleSelector.MyDataStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Right" />
+                    <Setter Property="Background" Value="Yellow" />
+                </Style>
+            </local:MessageStyleSelector.MyDataStyle>
+            <local:MessageStyleSelector.BotDataStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                </Style>
+            </local:MessageStyleSelector.BotDataStyle>
+            <local:MessageStyleSelector.SystemDataStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </local:MessageStyleSelector.SystemDataStyle>
+        </local:MessageStyleSelector>
     </Window.Resources>
     <Window.DataContext>
         <local:MainViewModel />
@@ -166,7 +185,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <!--  기본  -->
         <ListBox
             x:Name="NormalMessageList"
             ItemTemplate="{StaticResource MyDataTemplate}"
@@ -177,7 +198,7 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-
+        <!--  DataTemaplteSelector 적용  -->
         <ListBox
             x:Name="SelectorMessageList"
             Grid.Column="1"
@@ -189,6 +210,11 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-
+        <!--  DataTemaplteSelector & StyleSelector 적용  -->
+        <ListBox
+            Grid.Column="2"
+            ItemContainerStyleSelector="{StaticResource MessageStyleSelector}"
+            ItemTemplateSelector="{StaticResource MessageDataTemplateSelector}"
+            ItemsSource="{Binding Messages}" />
     </Grid>
 </Window>
