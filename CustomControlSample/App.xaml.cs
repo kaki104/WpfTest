@@ -17,7 +17,21 @@ namespace CustomControlSample
         public App()
         {
             Services = ConfigureServices();
-            this.InitializeComponent();
+            //this.InitializeComponent();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            var mainWindow = Services.GetService<MainWindow>();
+            if(mainWindow != null)
+            {
+                mainWindow.Show();
+            }
+            else
+            {
+                Shutdown();
+            }
         }
 
         /// <summary>
@@ -37,7 +51,10 @@ namespace CustomControlSample
         {
             var services = new ServiceCollection();
 
-            //ViewModel 등록
+            services.AddSingleton(typeof(MainWindow));
+            services.AddSingleton(typeof(MainWindowViewModel));
+
+            services.AddTransient(typeof(UserConsent));
             services.AddTransient(typeof(UserConsentViewModel));
 
             return services.BuildServiceProvider();

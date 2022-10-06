@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace CustomControlSample
 {
@@ -23,6 +10,19 @@ namespace CustomControlSample
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(MainWindowViewModel viewModel) : this()
+        {
+            ViewModel = viewModel;
+        }
+
+        public MainWindowViewModel ViewModel
+        {
+            get =>
+                //프로젝트 속성이 null 허용이 아니라 이렇게 처리했습니다
+                (MainWindowViewModel)DataContext;
+            set => DataContext = value;
         }
     }
 }

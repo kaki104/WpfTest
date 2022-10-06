@@ -9,11 +9,37 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
+    <Window.Resources />
     <Grid>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="30"
-            Text="MainWindow" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30"
+                Text="Kaki104 Sample Application" />
+            <Button Command="{Binding ShowPopupCommand, Mode=TwoWay}" Content="Click to Continue" />
+            <TextBlock
+                Margin="0,10,0,0"
+                FontWeight="DemiBold"
+                Text="{Binding Message}" />
+        </StackPanel>
+        <Popup
+            IsOpen="{Binding IsPopupOpen}"
+            Placement="Center"
+            PopupAnimation="Fade"
+            StaysOpen="True">
+            <Border Background="White">
+                <ContentControl Margin="5" Content="{Binding PopupContent}">
+                    <ContentControl.Effect>
+                        <DropShadowEffect
+                            BlurRadius="4"
+                            Direction="330"
+                            Opacity="0.5"
+                            ShadowDepth="4"
+                            Color="Black" />
+                    </ContentControl.Effect>
+                </ContentControl>
+            </Border>
+        </Popup>
     </Grid>
 </Window>
