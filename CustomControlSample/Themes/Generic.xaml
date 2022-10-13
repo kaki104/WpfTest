@@ -1,0 +1,51 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CustomControlSample">
+
+    <Style TargetType="local:CustomUserConsent">
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CustomUserConsent">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <StackPanel Margin="4" HorizontalAlignment="Center">
+                            <TextBlock TextWrapping="Wrap">
+                                Consent to use the application<LineBreak /><LineBreak />
+                                In order to use this application, you must agree to the items below.<LineBreak />
+                                1. Definition...</TextBlock>
+                            <CheckBox
+                                x:Name="PART_UserConsent"
+                                Margin="0,10,0,0"
+                                IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsUserConsent, Mode=TwoWay}">
+                                I agree.
+                            </CheckBox>
+                            <StackPanel
+                                Margin="0,40,0,0"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Button
+                                    x:Name="PART_Submit"
+                                    Width="80"
+                                    IsEnabled="{Binding ElementName=PART_UserConsent, Path=IsChecked}">
+                                    Submit
+                                </Button>
+                                <Button
+                                    x:Name="PART_Exit"
+                                    Width="80"
+                                    Margin="10,0,0,0">
+                                    Exit
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
