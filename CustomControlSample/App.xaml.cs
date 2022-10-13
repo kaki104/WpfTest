@@ -57,6 +57,8 @@ namespace CustomControlSample
             services.AddTransient(typeof(UserConsent));
             services.AddTransient(typeof(UserConsentViewModel));
 
+            services.AddTransient(typeof(CustomUserConsent));
+
             return services.BuildServiceProvider();
         }
     }

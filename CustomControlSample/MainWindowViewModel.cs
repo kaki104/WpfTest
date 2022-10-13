@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Reflection.Metadata;
 using System.Windows.Input;
 
 namespace CustomControlSample
@@ -57,7 +58,7 @@ namespace CustomControlSample
             //App.Current.Services.GetService를 직접 사용하지 않고, Injection 받아서 사용합니다.
             _serviceProvider = serviceProvider;
 
-            ShowPopupCommand = new RelayCommand(OnShowPopup);
+            ShowPopupCommand = new RelayCommand<string>(OnShowPopup);
             ClosePopupCommand = new RelayCommand<bool>(b =>
                 {
                     //결과 출력
@@ -69,21 +70,36 @@ namespace CustomControlSample
         /// <summary>
         /// 팝업 열기
         /// </summary>
-        private void OnShowPopup()
+        private void OnShowPopup(string para)
         {
             IsPopupOpen = true;
-            UserConsent? content = _serviceProvider.GetService<UserConsent>();
-            if (content == null)
+            if (para == "UserControl")
             {
-                return;
+                UserConsent? content = _serviceProvider.GetService<UserConsent>();
+                if (content == null)
+                {
+                    return;
+                }
+                content.Width = 300;
+                content.Height = 200;
+                if (content.DataContext is UserConsentViewModel viewModel)
+                {
+                    viewModel.ClosePopupCommand = ClosePopupCommand;
+                }
+                PopupContent = content;
             }
-            content.Width = 300;
-            content.Height = 200;
-            if (content.DataContext is UserConsentViewModel viewModel)
+            else
             {
-                viewModel.ClosePopupCommand = ClosePopupCommand;
+                var content = _serviceProvider.GetService<CustomUserConsent>();
+                if(content == null)
+                {
+                    return;
+                }
+                content.Width = 300;
+                content.Height = 200;
+                content.ClosePopupCommand = ClosePopupCommand;
+                PopupContent = content;
             }
-            PopupContent = content;
         }
     }
 }
