@@ -19,9 +19,8 @@ namespace CustomControlSample
 
         public MainWindowViewModel ViewModel
         {
-            get =>
-                //프로젝트 속성이 null 허용이 아니라 이렇게 처리했습니다
-                (MainWindowViewModel)DataContext;
+            //프로젝트 속성이 null 허용이 아니라 이렇게 처리했습니다
+            get => (MainWindowViewModel)DataContext;
             set => DataContext = value;
         }
     }
