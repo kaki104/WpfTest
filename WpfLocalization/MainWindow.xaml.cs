@@ -31,5 +31,7 @@ namespace WpfLocalization
             var dr = App.Current.Resources["DR"] as DynamicResource;
             dr.ChangeLanguage(button.Content.ToString());
         }
+
+        public DateTime NowDateTime { get; set; } = DateTime.Now;
     }
 }
