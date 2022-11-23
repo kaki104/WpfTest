@@ -1,10 +1,10 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace SelectorSample
 {
@@ -16,9 +16,13 @@ namespace SelectorSample
         /// </summary>
         public IList<MessageModel> Messages
         {
-            get { return _messages; }
-            set { SetProperty(ref _messages, value); }
+            get => _messages;
+            set => SetProperty(ref _messages, value);
         }
+        /// <summary>
+        /// 클릭 커맨드
+        /// </summary>
+        public ICommand ClickCommand { get; set; }
 
         public MainViewModel()
         {
@@ -33,6 +37,12 @@ namespace SelectorSample
                 new MessageModel{ Id = 7, MessageType = "Me", Message = "Quit" , CreateAt = DateTime.Now.AddMinutes(1)},
                 new MessageModel{ Id = 8, MessageType = "System", Message = "End message" , CreateAt = DateTime.Now.AddMinutes(1)},
             };
+            ClickCommand = new RelayCommand<string>(OnClick);
+        }
+
+        private void OnClick(string para)
+        {
+            _ = MessageBox.Show($"Clicked message on {para}");
         }
     }
 }
