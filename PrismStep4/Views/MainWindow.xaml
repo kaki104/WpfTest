@@ -1,0 +1,31 @@
+﻿<Window
+    x:Class="PrismStep4.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="525"
+    Height="350"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="Test1View"
+                Content="Test1View" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="Test2View"
+                Content="Test2View" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="Back"
+                Content="Back" />
+        </StackPanel>
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion" />
+    </Grid>
+</Window>
