@@ -27,5 +27,12 @@
                 Content="Back" />
         </StackPanel>
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion" />
+        <!--<TabControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Header" Value="{Binding DataContext.Header}" />
+                </Style>
+            </TabControl.Resources>
+        </TabControl>-->
     </Grid>
 </Window>

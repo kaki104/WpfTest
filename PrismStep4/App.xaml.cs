@@ -16,6 +16,7 @@ namespace PrismStep4
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            //네비게이션할 화면 등록
             containerRegistry.RegisterForNavigation<Test1View>();
             containerRegistry.RegisterForNavigation<Test2View>();
         }
