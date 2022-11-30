@@ -1,0 +1,40 @@
+﻿<Window
+    x:Class="PrismStep5.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="525"
+    Height="350"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="Test1View"
+                Content="Test1View" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="Test2View"
+                Content="Test2View" />
+            <Button
+                Command="{Binding NavigationCommand}"
+                CommandParameter="Back"
+                Content="Back" />
+        </StackPanel>
+        <!--  TabControl에 Region 설정  -->
+        <TabControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion">
+            <TabControl.Resources>
+                <!--  TabItem Header에 뷰모델 Header 프로퍼티 연결  -->
+                <Style TargetType="TabItem">
+                    <Setter Property="Header" Value="{Binding DataContext.Header}" />
+                </Style>
+            </TabControl.Resources>
+        </TabControl>
+    </Grid>
+</Window>
