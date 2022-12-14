@@ -1,0 +1,65 @@
+﻿<Window
+    x:Class="TriggerSample1.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="525"
+    Height="350"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="av">
+    <Window.Resources>
+        <!--  DataTemplate.Triggers를 이용하는 방법  -->
+        <DataTemplate x:Key="ListBoxItemTemplate1">
+            <TextBlock x:Name="NameTextBlock1" Text="{Binding Name}" />
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}" Value="True">
+                    <Setter TargetName="NameTextBlock1" Property="TextAlignment" Value="Right" />
+                    <Setter TargetName="NameTextBlock1" Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <!--  Style.Triggers를 이용하는 방법  -->
+        <DataTemplate x:Key="ListBoxItemTemplate2">
+            <TextBlock x:Name="NameTextBlock2" Text="{Binding Name}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}" Value="True">
+                                <Setter Property="TextAlignment" Value="Right" />
+                                <Setter Property="Foreground" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <ListBox ItemTemplate="{StaticResource ListBoxItemTemplate2}" ItemsSource="{Binding People}">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="FontSize" Value="15" />
+                            <Setter Property="BorderThickness" Value="3" />
+                            <Setter Property="Background" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <ListBox
+            Grid.Column="1"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding People}" />
+    </Grid>
+</Window>
