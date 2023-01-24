@@ -10,68 +10,77 @@
     Height="350"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="av">
-    <Window.Resources />
+    <Window.Resources>
+        <Style x:Key="AnimationTextBlockStyle" TargetType="TextBlock">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="FontSize"
+                                To="28"
+                                Duration="0:0:0.300" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="FontSize"
+                                To="12"
+                                Duration="0:0:0.3" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="PersonItemTemplate">
+            <Border x:Name="Bd" Background="Gray">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        x:Name="Content"
+                        Margin="4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        Foreground="White"
+                        Style="{StaticResource AnimationTextBlockStyle}"
+                        Text="{Binding Name}"
+                        TextAlignment="Center" />
+                </StackPanel>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Sex}" Value="True">
+                    <Setter TargetName="Bd" Property="Background" Value="SkyBlue" />
+                    <Setter TargetName="Content" Property="Foreground" Value="DarkBlue" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Sex}" Value="False">
+                    <Setter TargetName="Bd" Property="Background" Value="Pink" />
+                    <Setter TargetName="Content" Property="Foreground" Value="Blue" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="textBlock1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="2" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="textBlock1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="2" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border x:Name="Bd" Background="Gray">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock
-                                x:Name="Content"
-                                Margin="4"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontSize="12"
-                                Foreground="White"
-                                Text="{Binding Name}"
-                                TextAlignment="Center">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <EventTrigger RoutedEvent="MouseEnter">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <DoubleAnimation
-                                                            Storyboard.TargetProperty="FontSize"
-                                                            To="28"
-                                                            Duration="0:0:0.300" />
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                            <EventTrigger RoutedEvent="MouseLeave">
-                                                <BeginStoryboard>
-                                                    <Storyboard>
-                                                        <DoubleAnimation
-                                                            Storyboard.TargetProperty="FontSize"
-                                                            To="12"
-                                                            Duration="0:0:0.300" />
-                                                    </Storyboard>
-                                                </BeginStoryboard>
-                                            </EventTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </StackPanel>
-                    </Border>
-                    <DataTemplate.Triggers>
-                        <DataTrigger Binding="{Binding Sex}" Value="True">
-                            <Setter TargetName="Bd" Property="Background" Value="SkyBlue" />
-                            <Setter TargetName="Content" Property="Foreground" Value="DarkBlue" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Sex}" Value="False">
-                            <Setter TargetName="Bd" Property="Background" Value="Pink" />
-                            <Setter TargetName="Content" Property="Foreground" Value="Blue" />
-                        </DataTrigger>
-                    </DataTemplate.Triggers>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListBox
+            ItemTemplate="{StaticResource PersonItemTemplate}"
+            ItemsSource="{Binding People}"
+            SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" />
 
         <Grid
             x:Name="grid"
@@ -86,6 +95,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="35*" />
@@ -102,7 +112,9 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)">
-                                            <DiscreteStringKeyFrame KeyTime="00:00:00" Value="아이디" />
+                                            <DiscreteStringKeyFrame KeyTime="00:00:0" Value="아" />
+                                            <DiscreteStringKeyFrame KeyTime="00:00:1" Value="아이" />
+                                            <DiscreteStringKeyFrame KeyTime="00:00:2" Value="아이디" />
                                         </StringAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </BeginStoryboard>
@@ -115,7 +127,20 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Text="{Binding SelectedPerson.Id}" />
-            <TextBlock Grid.Row="1" Text="Name" />
+            <TextBlock
+                x:Name="textBlock1"
+                Grid.Row="1"
+                RenderTransformOrigin="0.5,0.5"
+                Text="Name">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="1"
@@ -153,6 +178,16 @@
                 Grid.Column="1"
                 IsReadOnly="True"
                 ItemsSource="{Binding SelectedPerson.Childs}" />
+            <Button
+                Grid.Row="8"
+                Grid.ColumnSpan="2"
+                Content="PlayStoryboard">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="Button.Click">
+                        <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
         </Grid>
     </Grid>
 </Window>
