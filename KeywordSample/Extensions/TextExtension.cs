@@ -32,25 +32,36 @@ namespace KeywordSample.Extensions
         private static void OnKeywordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             //TextBlock이 아니거나 문자열이 아니거나 빈문자열인 경우 나감
-            if (d is not TextBlock textBlock || e.NewValue is not string keyword)
+            if (d is not TextBlock textBlock || string.IsNullOrWhiteSpace(textBlock.Text) || e.NewValue is not string keyword)
             {
                 return;
             }
-            string backupText = textBlock.Text;
-            //첫번째 키워드 위치 저장 (1개의 키워드 위치만 찾아서 표시합니다)
-            //이 내용 참고하면 전체 텍스트에서 검색해서 출력하는 것도 가능합니다.
-            int index = backupText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase);
-            string preText = backupText[..index];
-            string keywordText = backupText.Substring(index, keyword.Length);
-            string postText = backupText[(index + keyword.Length)..];
-            textBlock.Inlines.Clear();
-            textBlock.Inlines.Add(preText);
-            //빨간색 글씨 표시
-            textBlock.Inlines.Add(new Run(keywordText)
+            try
+            {
+                string backupText = textBlock.Text;
+                //첫번째 키워드 위치 저장 (1개의 키워드 위치만 찾아서 표시합니다)
+                //이 내용 참고하면 전체 텍스트에서 검색해서 출력하는 것도 가능합니다.
+                int index = backupText.IndexOf(keyword, StringComparison.OrdinalIgnoreCase);
+                if (index == -1)
+                {
+                    return;
+                }
+                string preText = backupText[..index];
+                string keywordText = backupText.Substring(index, keyword.Length);
+                string postText = backupText[(index + keyword.Length)..];
+                textBlock.Inlines.Clear();
+                textBlock.Inlines.Add(preText);
+                //빨간색 글씨 표시
+                textBlock.Inlines.Add(new Run(keywordText)
                 {
                     Foreground = _redColorBrush
                 });
-            textBlock.Inlines.Add(postText);
+                textBlock.Inlines.Add(postText);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
