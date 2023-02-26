@@ -1,0 +1,209 @@
+Severity	Code	Description	Project	File	Line	Suppression State
+Error		Error reading response	KakiPrismUnoMigration.Droid			
+Error		Generation failed, error code Rejected	KakiPrismUnoMigration.Droid			
+Error		Generation failed: System.AggregateException: One or more errors occurred. ---> System.InvalidOperationException: Generation failed for Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGenerator. System.Exception: Processing failed for file C:\Users\kaki1\source\repos\KakiPrismUnoMigration\KakiPrismUnoMigration\KakiPrismUnoMigration.Shared\App.xaml ---> System.InvalidOperationException: The reference C:\Users\kaki1\source\repos\KakiPrismUnoMigration\KakiPrismUnoMigration\KakiPrismUnoMigration.Core\bin\Debug\monoandroid10.0\KakiPrismUnoMigration.Core.dll could not be found in C:\Users\kaki1\source\repos\KakiPrismUnoMigration\KakiPrismUnoMigration\KakiPrismUnoMigration.Core\bin\Debug\monoandroid10.0\KakiPrismUnoMigration.Core.dll
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.GenerateResourceLoader(IndentedStringBuilder writer) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 507
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.BuildApplicationInitializerBody(IndentedStringBuilder writer, XamlObjectDefinition topLevelControl) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 428
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.InnerGenerateFile() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 325
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.GenerateFile() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 247
+   --- End of inner exception stack trace ---
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.GenerateFile() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 251
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGeneration.<>c__DisplayClass35_0.<Generate>b__1(XamlFileDefinition file) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlCodeGeneration.cs:line 249
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGeneration.Generate() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlCodeGeneration.cs:line 289
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGenerator.Execute(SourceGeneratorContext context) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlCodeGenerator.cs:line 22
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.<>c__DisplayClass4_1.<Generate>b__13(ValueTuple`2 generatorDef) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 187
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.<>c__DisplayClass4_1.<Generate>b__13(ValueTuple`2 generatorDef) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 204
+   at System.Linq.Parallel.SelectQueryOperator`2.SelectQueryOperatorEnumerator`1.MoveNext(TOutput& currentElement, TKey& currentKey)
+   at System.Linq.Parallel.StopAndGoSpoolingTask`2.SpoolingWork()
+   at System.Linq.Parallel.SpoolingTaskBase.Work()
+   at System.Linq.Parallel.QueryTask.BaseWork(Object unused)
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.Linq.Parallel.QueryTaskGroupState.QueryEnd(Boolean userInitiatedDispose)
+   at System.Linq.Parallel.DefaultMergeHelper`2.System.Linq.Parallel.IMergeHelper<TInputOutput>.Execute()
+   at System.Linq.Parallel.MergeExecutor`1.Execute[TKey](PartitionedStream`2 partitions, Boolean ignoreOutput, ParallelMergeOptions options, TaskScheduler taskScheduler, Boolean isOrdered, CancellationState cancellationState, Int32 queryId)
+   at System.Linq.Parallel.PartitionedStreamMerger`1.Receive[TKey](PartitionedStream`2 partitionedStream)
+   at System.Linq.Parallel.UnaryQueryOperator`2.UnaryQueryOperatorResults.ChildResultsRecipient.Receive[TKey](PartitionedStream`2 inputStream)
+   at System.Linq.Parallel.ScanQueryOperator`1.ScanEnumerableQueryOperatorResults.GivePartitionedStream(IPartitionedStreamRecipient`1 recipient)
+   at System.Linq.Parallel.UnaryQueryOperator`2.UnaryQueryOperatorResults.GivePartitionedStream(IPartitionedStreamRecipient`1 recipient)
+   at System.Linq.Parallel.QueryOperator`1.ExecuteAndGetResultsAsArray()
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.Generate() in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 166
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Uno.SourceGeneratorTasks.RemoteSourceGeneratorEngine.Generate(RemotableLogger2 logger, BuildEnvironment environment)
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.GenerateForCollection(EnvironmentPool collection, BuildEnvironment environment) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.netframework.cs:line 61
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.RunGeneration(RunRequest request, CancellationToken cancellationToken) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.cs:line 73
+---> (Inner Exception #0) System.InvalidOperationException: Generation failed for Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGenerator. System.Exception: Processing failed for file C:\Users\kaki1\source\repos\KakiPrismUnoMigration\KakiPrismUnoMigration\KakiPrismUnoMigration.Shared\App.xaml ---> System.InvalidOperationException: The reference C:\Users\kaki1\source\repos\KakiPrismUnoMigration\KakiPrismUnoMigration\KakiPrismUnoMigration.Core\bin\Debug\monoandroid10.0\KakiPrismUnoMigration.Core.dll could not be found in C:\Users\kaki1\source\repos\KakiPrismUnoMigration\KakiPrismUnoMigration\KakiPrismUnoMigration.Core\bin\Debug\monoandroid10.0\KakiPrismUnoMigration.Core.dll
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.GenerateResourceLoader(IndentedStringBuilder writer) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 507
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.BuildApplicationInitializerBody(IndentedStringBuilder writer, XamlObjectDefinition topLevelControl) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 428
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.InnerGenerateFile() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 325
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.GenerateFile() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 247
+   --- End of inner exception stack trace ---
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlFileGenerator.GenerateFile() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlFileGenerator.cs:line 251
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGeneration.<>c__DisplayClass35_0.<Generate>b__1(XamlFileDefinition file) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlCodeGeneration.cs:line 249
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGeneration.Generate() in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlCodeGeneration.cs:line 289
+   at Uno.UI.SourceGenerators.XamlGenerator.XamlCodeGenerator.Execute(SourceGeneratorContext context) in C:\a\1\s\src\SourceGenerators\Uno.UI.SourceGenerators\XamlGenerator\XamlCodeGenerator.cs:line 22
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.<>c__DisplayClass4_1.<Generate>b__13(ValueTuple`2 generatorDef) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 187
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.<>c__DisplayClass4_1.<Generate>b__13(ValueTuple`2 generatorDef) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 204
+   at System.Linq.Parallel.SelectQueryOperator`2.SelectQueryOperatorEnumerator`1.MoveNext(TOutput& currentElement, TKey& currentKey)
+   at System.Linq.Parallel.StopAndGoSpoolingTask`2.SpoolingWork()
+   at System.Linq.Parallel.SpoolingTaskBase.Work()
+   at System.Linq.Parallel.QueryTask.BaseWork(Object unused)
+   at System.Threading.Tasks.Task.Execute()<---	KakiPrismUnoMigration.Droid			
+Error		Error reading response	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Generation failed: System.MissingMethodException: Method not found: 'System.Collections.Immutable.ImmutableList`1<!!0> System.Collections.Immutable.ImmutableList.ToImmutableList(Builder<!!0>)'.
+
+Server stack trace: 
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.UpdateOperation.ApplyImpl(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemOperation.Apply(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.ComputeItems(LazyItemList lazyItemList, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.GetItemData(ImmutableHashSet`1 globsToIgnore)
+   at System.Linq.Enumerable.<SelectManyIterator>d__17`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Uno.SourceGeneration.Host.ProjectLoader.LoadProjectDetails(BuildEnvironment environment, Dictionary`2 globalProperties) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\ProjectLoader.cs:line 142
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.Generate() in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 85
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Uno.SourceGeneratorTasks.RemoteSourceGeneratorEngine.Generate(RemotableLogger2 logger, BuildEnvironment environment)
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.GenerateForCollection(EnvironmentPool collection, BuildEnvironment environment) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.netframework.cs:line 61
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.RunGeneration(RunRequest request, CancellationToken cancellationToken) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.cs:line 73	KakiPrismUnoMigration.Core		1	
+Error		Generation failed, error code Rejected	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Error reading response	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Generation failed: System.MissingMethodException: Method not found: 'System.Collections.Immutable.ImmutableList`1<!!0> System.Collections.Immutable.ImmutableList.ToImmutableList(Builder<!!0>)'.
+
+Server stack trace: 
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.UpdateOperation.ApplyImpl(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemOperation.Apply(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.ComputeItems(LazyItemList lazyItemList, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.GetItemData(ImmutableHashSet`1 globsToIgnore)
+   at System.Linq.Enumerable.<SelectManyIterator>d__17`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Uno.SourceGeneration.Host.ProjectLoader.LoadProjectDetails(BuildEnvironment environment, Dictionary`2 globalProperties) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\ProjectLoader.cs:line 142
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.Generate() in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 85
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Uno.SourceGeneratorTasks.RemoteSourceGeneratorEngine.Generate(RemotableLogger2 logger, BuildEnvironment environment)
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.GenerateForCollection(EnvironmentPool collection, BuildEnvironment environment) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.netframework.cs:line 61
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.RunGeneration(RunRequest request, CancellationToken cancellationToken) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.cs:line 73	KakiPrismUnoMigration.Core		1	
+Error		Generation failed, error code Rejected	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Error reading response	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Generation failed: System.MissingMethodException: Method not found: 'System.Collections.Immutable.ImmutableList`1<!!0> System.Collections.Immutable.ImmutableList.ToImmutableList(Builder<!!0>)'.
+
+Server stack trace: 
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.UpdateOperation.ApplyImpl(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemOperation.Apply(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.ComputeItems(LazyItemList lazyItemList, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.GetItemData(ImmutableHashSet`1 globsToIgnore)
+   at System.Linq.Enumerable.<SelectManyIterator>d__17`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Uno.SourceGeneration.Host.ProjectLoader.LoadProjectDetails(BuildEnvironment environment, Dictionary`2 globalProperties) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\ProjectLoader.cs:line 142
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.Generate() in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 85
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Uno.SourceGeneratorTasks.RemoteSourceGeneratorEngine.Generate(RemotableLogger2 logger, BuildEnvironment environment)
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.GenerateForCollection(EnvironmentPool collection, BuildEnvironment environment) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.netframework.cs:line 61
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.RunGeneration(RunRequest request, CancellationToken cancellationToken) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.cs:line 73	KakiPrismUnoMigration.Core		1	
+Error		Generation failed, error code Rejected	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Error reading response	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Generation failed: System.MissingMethodException: Method not found: 'System.Collections.Immutable.ImmutableList`1<!!0> System.Collections.Immutable.ImmutableList.ToImmutableList(Builder<!!0>)'.
+
+Server stack trace: 
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.UpdateOperation.ApplyImpl(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemOperation.Apply(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.ComputeItems(LazyItemList lazyItemList, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.GetItemData(ImmutableHashSet`1 globsToIgnore)
+   at System.Linq.Enumerable.<SelectManyIterator>d__17`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Uno.SourceGeneration.Host.ProjectLoader.LoadProjectDetails(BuildEnvironment environment, Dictionary`2 globalProperties) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\ProjectLoader.cs:line 142
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.Generate() in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 85
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Uno.SourceGeneratorTasks.RemoteSourceGeneratorEngine.Generate(RemotableLogger2 logger, BuildEnvironment environment)
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.GenerateForCollection(EnvironmentPool collection, BuildEnvironment environment) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.netframework.cs:line 61
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.RunGeneration(RunRequest request, CancellationToken cancellationToken) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.cs:line 73	KakiPrismUnoMigration.Core		1	
+Error		Generation failed, error code Rejected	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Error reading response	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
+Error		Generation failed: System.MissingMethodException: Method not found: 'System.Collections.Immutable.ImmutableList`1<!!0> System.Collections.Immutable.ImmutableList.ToImmutableList(Builder<!!0>)'.
+
+Server stack trace: 
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.UpdateOperation.ApplyImpl(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemOperation.Apply(Builder listBuilder, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.ComputeItems(LazyItemList lazyItemList, ImmutableHashSet`1 globsToIgnore)
+   at Microsoft.Build.Evaluation.LazyItemEvaluator`4.LazyItemList.GetItemData(ImmutableHashSet`1 globsToIgnore)
+   at System.Linq.Enumerable.<SelectManyIterator>d__17`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.OrderedEnumerable`1.<GetEnumerator>d__1.MoveNext()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate()
+   at Microsoft.Build.Evaluation.Evaluator`4.Evaluate(IEvaluatorData`4 data, ProjectRootElement root, ProjectLoadSettings loadSettings, Int32 maxNodeCount, PropertyDictionary`1 environmentProperties, ILoggingService loggingService, IItemFactory`2 itemFactory, IToolsetProvider toolsetProvider, ProjectRootElementCacheBase projectRootElementCache, BuildEventContext buildEventContext, ISdkResolverService sdkResolverService, Int32 submissionId, EvaluationContext evaluationContext, Boolean interactive)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Reevaluate(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(ILoggingService loggingServiceForEvaluation, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.ReevaluateIfNecessary(EvaluationContext evaluationContext)
+   at Microsoft.Build.Evaluation.Project.ProjectImpl.Initialize(IDictionary`2 globalProperties, String toolsVersion, String subToolsetVersion, ProjectLoadSettings loadSettings, EvaluationContext evaluationContext)
+   at Uno.SourceGeneration.Host.ProjectLoader.LoadProjectDetails(BuildEnvironment environment, Dictionary`2 globalProperties) in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\ProjectLoader.cs:line 142
+   at Uno.SourceGeneration.Host.SourceGeneratorEngine.Generate() in D:\a\1\s\src\Uno.SourceGeneration.Engine.Shared\SourceGeneratorEngine.cs:line 85
+   at System.Runtime.Remoting.Messaging.StackBuilderSink._PrivateProcessMessage(IntPtr md, Object[] args, Object server, Object[]& outArgs)
+   at System.Runtime.Remoting.Messaging.StackBuilderSink.SyncProcessMessage(IMessage msg)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at Uno.SourceGeneratorTasks.RemoteSourceGeneratorEngine.Generate(RemotableLogger2 logger, BuildEnvironment environment)
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.GenerateForCollection(EnvironmentPool collection, BuildEnvironment environment) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.netframework.cs:line 61
+   at Uno.SourceGeneration.Host.Server.GenerationServerHost.RunGeneration(RunRequest request, CancellationToken cancellationToken) in D:\a\1\s\src\Uno.SourceGeneration.Host\Server\GenerationServerHost.cs:line 73	KakiPrismUnoMigration.Core		1	
+Error		Generation failed, error code Rejected	KakiPrismUnoMigration.Core	C:\Users\kaki1\.nuget\packages\uno.sourcegenerationtasks\2.0.13\build\netstandard1.0\Uno.SourceGenerationTasks.targets	127	
