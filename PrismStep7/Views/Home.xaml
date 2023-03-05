@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="PrismStep7.Views.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PrismStep7.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:vm="clr-namespace:PrismStep7.ViewModels"
+    d:DataContext="{d:DesignInstance Type=vm:HomeViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock FontSize="30" Text="Home" />
+            <TextBlock>
+                <Run Text="Id :" />
+                <Run Text="{Binding AppContext.Id}" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Name :" />
+                <Run Text="{Binding AppContext.Name}" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Connection DateTime :" />
+                <Run Text="{Binding AppContext.Connection}" />
+            </TextBlock>
+            <TextBlock>
+                <Run Text="ConnectionId :" />
+                <Run Text="{Binding AppContext.ConnectionId}" />
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>
