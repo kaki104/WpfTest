@@ -37,7 +37,8 @@ namespace PrismStep7.ViewModels
         /// <summary>
         /// 런타임 생성자
         /// </summary>
-        public HomeViewModel(IContainerProvider containerProvider, IRegionManager regionManager, IAppContext appContext)
+        public HomeViewModel(IContainerProvider containerProvider, IRegionManager regionManager, 
+            IAppContext appContext)
         {
             _containerProvider = containerProvider;
             _regionManager = regionManager;

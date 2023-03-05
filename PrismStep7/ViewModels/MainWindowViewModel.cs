@@ -15,16 +15,6 @@ namespace PrismStep7.ViewModels
         private readonly IContainerProvider _containerProvider;
         private readonly IRegionManager _regionManager;
 
-        private IAppContext _appContext;
-        /// <summary>
-        /// AppContext
-        /// </summary>
-        public IAppContext AppContext
-        {
-            get { return _appContext; }
-            set { SetProperty(ref _appContext, value); }
-        }
-
         private string _title = "Prism Application";
         /// <summary>
         /// 타이틀
@@ -43,11 +33,10 @@ namespace PrismStep7.ViewModels
         /// <summary>
         /// 런타임 생성자
         /// </summary>
-        public MainWindowViewModel(IContainerProvider containerProvider, IRegionManager regionManager, IAppContext appContext)
+        public MainWindowViewModel(IContainerProvider containerProvider, IRegionManager regionManager)
         {
             _containerProvider = containerProvider;
             _regionManager = regionManager;
-            AppContext = appContext;
 
             Init();
         }

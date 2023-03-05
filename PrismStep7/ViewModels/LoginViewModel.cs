@@ -19,7 +19,7 @@ namespace PrismStep7.ViewModels
 
         private IAppContext _appContext;
         /// <summary>
-        /// AppContext
+        /// AppContext, Id와 Name을 컨트롤에서 직접 입력을 받기 위해서 Public으로 만듬
         /// </summary>
         public IAppContext AppContext
         {
@@ -36,12 +36,12 @@ namespace PrismStep7.ViewModels
         /// </summary>
         public LoginViewModel()
         {
-
         }
         /// <summary>
         /// 런타임 생성자
         /// </summary>
-        public LoginViewModel(IContainerProvider containerProvider, IRegionManager regionManager, IAppContext appContext)
+        public LoginViewModel(IContainerProvider containerProvider, IRegionManager regionManager, 
+            IAppContext appContext)
         {
             _containerProvider = containerProvider;
             _regionManager = regionManager;
@@ -53,6 +53,9 @@ namespace PrismStep7.ViewModels
         {
             LoginCommand = new DelegateCommand(OnLogin);
         }
+        /// <summary>
+        /// LoginCommand 처리
+        /// </summary>
         private void OnLogin()
         {
             if (string.IsNullOrEmpty(AppContext.Id) || string.IsNullOrEmpty(AppContext.Name))
