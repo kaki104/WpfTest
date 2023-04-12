@@ -8,29 +8,25 @@
     Height="350"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Image
-            Grid.Row="0"
-            Grid.Column="0"
-            Source="{Binding Cake1}" />
-        <Image
-            Grid.Row="0"
-            Grid.Column="1"
-            Source="{Binding Cake2}" />
-        <Image
+        <Menu>
+            <MenuItem
+                Command="{Binding NavigateMenuCommand}"
+                CommandParameter="CakeView"
+                Header="Cake" />
+            <MenuItem
+                Command="{Binding NavigateMenuCommand}"
+                CommandParameter="IceCreamView"
+                Header="IceCream" />
+        </Menu>
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion" />
+        <TextBlock
             Grid.Row="1"
-            Grid.Column="0"
-            Source="/Assets/Images/cake3.jpg" />
-        <Image
-            Grid.Row="1"
-            Grid.Column="1"
-            Source="{Binding Cake4}" />
+            Margin="5"
+            VerticalAlignment="Bottom"
+            Text="Images from https://www.istockphoto.com/" />
     </Grid>
 </Window>

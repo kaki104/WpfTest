@@ -1,5 +1,7 @@
-﻿using PackUriSample.Views;
+﻿using PackUriSample.Module;
+using PackUriSample.Views;
 using Prism.Ioc;
+using Prism.Modularity;
 using System.Windows;
 
 namespace PackUriSample
@@ -16,7 +18,11 @@ namespace PackUriSample
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<CakeView>();
+        }
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<PackUriSampleModule>();
         }
     }
 }

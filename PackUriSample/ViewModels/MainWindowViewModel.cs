@@ -1,90 +1,52 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Regions;
 using System;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace PackUriSample.ViewModels
 {
+    /// <summary>
+    /// MainWindowViewModel
+    /// </summary>
     public class MainWindowViewModel : BindableBase
     {
-        private string _title = "Prism Application";
+        private readonly IRegionManager _regionManeger;
+        private string _title = "Pack Uri Sample";
         public string Title
         {
             get => _title;
             set => SetProperty(ref _title, value);
         }
-        private Uri _cake1;
         /// <summary>
-        /// 케이크1
+        /// 네비게이트 메뉴 커맨드
         /// </summary>
-        public Uri Cake1
+        public ICommand NavigateMenuCommand { get; set; }
+
+        public MainWindowViewModel(IRegionManager regionManager)
         {
-            get { return _cake1; }
-            set { SetProperty(ref _cake1, value); }
-        }
-        private ImageSource _cake2;
-        /// <summary>
-        /// 케이크2
-        /// </summary>
-        public ImageSource Cake2
-        {
-            get => _cake2;
-            set => SetProperty(ref _cake2, value);
+            _regionManeger = regionManager;
+            Init();
         }
 
-        private ImageSource _cake4;
-        /// <summary>
-        /// 케이크4
-        /// </summary>
-        public ImageSource Cake4
+        private void Init()
         {
-            get => _cake4;
-            set => SetProperty(ref _cake4, value);
-        }
-
-        public MainWindowViewModel()
-        {
-            LoadCake2Images();
-            LoadCake4Image();
-            LoadCake1Image();
+            NavigateMenuCommand = new DelegateCommand<string>(OnNavigateMenu);
+            _regionManeger.RegisterViewWithRegion("ContentRegion", "CakeView");
         }
         /// <summary>
-        /// 케이크1 이미지 로드
+        /// 네비게이트 메뉴
         /// </summary>
-        private void LoadCake1Image()
+        /// <param name="viewName"></param>
+        private void OnNavigateMenu(string viewName)
         {
-            Cake1 = new Uri("pack://siteoforigin:,,,/Assets/Images/cake1.jpg");
-        }
-
-        /// <summary>
-        /// 케이크4 이미지 로드
-        /// </summary>
-        private void LoadCake4Image()
-        {
-            BitmapImage bi = new();
-            bi.BeginInit();
-            bi.UriSource = new Uri("pack://siteoforigin:,,,/Assets/Images/cake4.jpg");
-            bi.EndInit();
-            Cake4 = bi;
-        }
-
-        /// <summary>
-        /// 케이크2 이미지 로드
-        /// </summary>
-        private void LoadCake2Images()
-        {
-            System.Reflection.Assembly assembly = GetType().Assembly;
-            string imageName = $"{assembly.GetName().Name}.Assets.Images.cake2.jpg";
-            using System.IO.Stream stream = assembly.GetManifestResourceStream(imageName);
-            if (stream == null)
+            if(string.IsNullOrEmpty(viewName))
             {
                 return;
             }
-            BitmapImage bi = new();
-            bi.BeginInit();
-            bi.StreamSource = stream;
-            bi.EndInit();
-            Cake2 = bi;
+            _regionManeger.RequestNavigate("ContentRegion", viewName);
         }
     }
 }
