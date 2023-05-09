@@ -17,27 +17,32 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <TextBlock
+            Grid.ColumnSpan="3"
+            FontSize="20"
+            Text="{Binding Title}" />
         <Image
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.Column="0"
             Source="{Binding IceCream1}" />
         <Image
-            Grid.Row="0"
+            Grid.Row="1"
             Grid.Column="1"
             Source="{Binding IceCream2}" />
         <Image
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
             Source="/PackUriSample.Module;component/Assets/Images/icecream3.jpg" />
         <Image
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="1"
             Source="{Binding IceCream4}" />
-        <Image Grid.Row="0" Grid.Column="2" />
         <Image Grid.Row="1" Grid.Column="2" />
+        <Image Grid.Row="2" Grid.Column="2" />
     </Grid>
 
 </UserControl>

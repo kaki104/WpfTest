@@ -1,12 +1,26 @@
 ﻿using Prism.Mvvm;
 using System;
+using System.Reflection;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace PackUriSample.Module.ViewModels
 {
+    /// <summary>
+    /// 아이스크림 뷰모델
+    /// </summary>
     public class IceCreamViewModel : BindableBase
     {
+        private string _title;
+        /// <summary>
+        /// 제목
+        /// </summary>
+        public string Title
+        {
+            get { return _title; }
+            set { SetProperty(ref _title, value); }
+        }
         private Uri _iceCream1;
         public Uri IceCream1
         {
@@ -25,8 +39,12 @@ namespace PackUriSample.Module.ViewModels
             get => _iceCream4;
             set => SetProperty(ref _iceCream4, value);
         }
+        /// <summary>
+        /// 기본생성자
+        /// </summary>
         public IceCreamViewModel()
         {
+            Title = Application.Current.MainWindow.Title;
             LoadIceCream2Image();
             LoadIceCream4Image();
             LoadIceCream1Image();
