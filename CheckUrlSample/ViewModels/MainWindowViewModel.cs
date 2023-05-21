@@ -64,8 +64,11 @@ namespace CheckUrlSample.ViewModels
         /// </summary>
         private async void OnCheck()
         {
+            //CheckUrlExistAsync를 호출하는 다량의 Task 생성
             var tasks = Urls.Select(u => CheckUrlExistAsync(u.Url)).ToList();
+            //모든 Task가 완료 될 때까지 await, _httpClient 1개는 한번에 4-5개의 SendAsync를 처리 합니다.
             var resuls = await Task.WhenAll(tasks);
+            //모든 Task가 완료되면, 결과를 입력
             for (int i = 0; i < resuls.Count(); i++)
             {
                 Urls[i].Exist = resuls[i];
