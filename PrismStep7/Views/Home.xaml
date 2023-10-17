@@ -2,6 +2,8 @@
     x:Class="PrismStep7.Views.Home"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:PrismStep7.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PrismStep7.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -14,7 +16,26 @@
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Grid>
-        <StackPanel Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button
+                Command="{Binding BehaviorCommand}"
+                CommandParameter="Name"
+                Content="Name Behavior" />
+            <Button
+                Command="{Binding BehaviorCommand}"
+                CommandParameter="Type"
+                Content="Type Behavior" />
+            <Button Command="{Binding TemplateCommand}" Content="ContentTemplate" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="10">
             <TextBlock FontSize="30" Text="Home" />
             <TextBlock>
                 <Run Text="Id :" />
@@ -33,5 +54,18 @@
                 <Run Text="{Binding AppContext.ConnectionId}" />
             </TextBlock>
         </StackPanel>
+        <!--  ContentControl에 View Injection  -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <ContentControl>
+                <b:Interaction.Behaviors>
+                    <behaviors:ContentControlBehavior ViewName="{Binding ViewName}" ViewType="{Binding ViewType}" />
+                </b:Interaction.Behaviors>
+            </ContentControl>
+            <ContentControl Grid.Row="1" />
+        </Grid>
     </Grid>
 </UserControl>
