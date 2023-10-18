@@ -24,7 +24,7 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button
                 Command="{Binding BehaviorCommand}"
                 CommandParameter="Name"

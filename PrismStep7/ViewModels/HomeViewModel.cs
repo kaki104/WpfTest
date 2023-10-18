@@ -92,7 +92,10 @@ namespace PrismStep7.ViewModels
             //ViewKind 값에 따라 미리 정의한 여러개의 화면을 넣을 수 있음
             ViewKind = para;
         }
-
+        /// <summary>
+        /// BehaviorCommand에 연결된 메서드
+        /// </summary>
+        /// <param name="para"></param>
         private void OnBehavior(string para)
         {
             switch (para)

@@ -51,6 +51,7 @@ namespace PrismStep7.Behaviors
             {
                 case nameof(ViewName):
                 case nameof(ViewType):
+                    //ViewName이나 ViewType이 변경되면 ResolveView()를 실행합니다.
                     ResolveView();
                     break;
             }
@@ -59,7 +60,7 @@ namespace PrismStep7.Behaviors
 
         private void ResolveView()
         {
-            //AssociatedObject 연결되지 않았으면 나감
+            //AssociatedObject 연결되지 않았으면 종료합니다.
             if (AssociatedObject == null)
             {
                 return;
