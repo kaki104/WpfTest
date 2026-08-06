@@ -1,4 +1,4 @@
-# 기본컨트롤(BasicControls)
+# BasicControls
 
 ## BasicControlSample
 - Post : https://kaki104.tistory.com/749
